@@ -63,6 +63,11 @@ namespace SchoolManagementSystem.Domain
             get { return context.Appointment; }
         }
 
+        public IEnumerable<Payment> Payments
+        {
+            get { return context.Payments; }
+        }
+
         public IEnumerable<Booking> Bookings
         {
             get { return context.Bookings; }
@@ -92,6 +97,12 @@ namespace SchoolManagementSystem.Domain
         public int AddStudent(Student item)
         {
             context.Students.Add(item);
+            return context.SaveChanges();
+        }
+
+        public int AddPayment(Payment item)
+        {
+            context.Payments.Add(item);
             return context.SaveChanges();
         }
 

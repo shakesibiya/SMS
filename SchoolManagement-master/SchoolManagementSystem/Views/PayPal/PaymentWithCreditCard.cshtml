@@ -1,0 +1,126 @@
+﻿@model SchoolManagementSystem.Models.PaymentViewModel
+
+@{
+    ViewBag.Title = "Payment With Credit Card";
+    Layout = "~/Views/Student/StudentLayout.cshtml";
+}
+
+<h1>Credit Card Payment</h1>
+<hr />
+
+<div class="col-lg-5">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <div class="row form-group">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.price)
+            </div>
+            <input class="form-control" type="text" name="price" required value="">
+        </div>
+
+        <div class="row form-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.subjectId, "Subject")
+            </div>
+            <div class="form-control">
+                @Html.DropDownList("SubjectId", String.Empty)
+                @Html.ValidationMessageFor(model => model.subjectId)
+            </div>
+        </div>
+        
+        <div class="row form-group">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.city)
+            </div>
+            <input class="form-control" type="text" name="city" required value="">
+        </div>
+        
+        <div class="row form-group">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.countryCode)
+            </div>
+            <input class="form-control" type="text" name="countryCode" required value="">
+        </div>
+        
+        <div class="row form-group">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.line1)
+            </div>
+            <input class="form-control" type="text" name="line1" required value="">
+        </div>
+
+        <div class="row form-group">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.postalCode)
+            </div>
+            <input class="form-control" type="text" name="postalCode" required value="">
+        </div>
+
+        <div class="row form-group">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.state)
+            </div>
+            <input class="form-control" type="text" name="state" required value="">
+        </div>
+
+        <div class="row form-group">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.cvv)
+            </div>
+            <input class="form-control" type="text" name="cvv" required value="">
+        </div>
+
+        <div class="row form-group">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.expireMonth)
+            </div>
+            <input class="form-control" type="text" name="expireMonth" required value="">
+        </div>
+
+        <div class="row form-group">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.expireYear)
+            </div>
+            <input class="form-control" type="text" name="expireYear" required value="">
+        </div>
+
+        <div class="row form-group">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.firstName)
+            </div>
+            <input class="form-control" type="text" name="firstName" required value="">
+        </div>
+
+        <div class="row form-group">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.lastName)
+            </div>
+            <input class="form-control" type="text" name="lastName" required value="">
+        </div>
+
+        <div class="row form-group">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.creditCardNo)
+            </div>
+            <input class="form-control" type="text" name="creditCardNo" required value="">
+        </div>
+        
+        <div class="row form-group">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.creditCardType)
+            </div>
+            <input class="form-control" type="text" name="creditCardType" required value="">
+        </div>
+        
+        <div>
+            <button class="btn btn-success" type="submit">Pay</button>
+        </div>
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

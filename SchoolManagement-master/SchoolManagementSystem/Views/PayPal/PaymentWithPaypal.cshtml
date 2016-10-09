@@ -1,0 +1,42 @@
+﻿@model SchoolManagementSystem.Models.PaymentViewModel
+
+@{
+    ViewBag.Title = "Payment With Paypal";
+    Layout = "~/Views/Student/StudentLayout.cshtml";
+}
+
+<h1>Paypal Payment</h1>
+<hr />
+
+<div class="col-lg-5">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <div class="row form-group">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.price)
+            </div>
+            <input class="form-control" type="text" name="price" required value="">
+        </div>
+
+        <div class="row form-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.subjectId, "Subject")
+            </div>
+            <div class="form-control">
+                @Html.DropDownList("SubjectId", String.Empty)
+                @Html.ValidationMessageFor(model => model.subjectId)
+            </div>
+        </div>
+
+        <div>
+            <button class="btn btn-success" type="submit">Pay</button>
+        </div>
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

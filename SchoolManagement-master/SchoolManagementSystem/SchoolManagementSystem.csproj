@@ -136,6 +136,8 @@
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\MailController.cs" />
     <Compile Include="Controllers\NewsController.cs" />
+    <Compile Include="Controllers\PaymentController.cs" />
+    <Compile Include="Controllers\PayPalController.cs" />
     <Compile Include="Controllers\PostPicturesController.cs" />
     <Compile Include="Controllers\SecretaryController.cs" />
     <Compile Include="Controllers\SmsController.cs" />
@@ -156,6 +158,9 @@
     <Compile Include="Models\DetailsVotingView.cs" />
     <Compile Include="Models\EventViewModel.cs" />
     <Compile Include="Models\IndexModelView.cs" />
+    <Compile Include="Models\PaymentViewModel.cs" />
+    <Compile Include="Models\PaypalSetUp\Configuration.cs" />
+    <Compile Include="Models\PaypalSetUp\Logger.cs" />
     <Compile Include="Models\PostView.cs" />
     <Compile Include="Models\SecretaryAddTeacherViewModel.cs" />
     <Compile Include="Models\SecretarySearchModel.cs" />
@@ -728,6 +733,18 @@
     <Content Include="Views\Votings\Vote.cshtml" />
     <Content Include="Views\Event\Info.cshtml" />
     <Content Include="Views\Votings\Info.cshtml" />
+    <Content Include="Views\Payment\Create.cshtml" />
+    <Content Include="Views\Payment\Delete.cshtml" />
+    <Content Include="Views\Payment\Details.cshtml" />
+    <Content Include="Views\Payment\Edit.cshtml" />
+    <Content Include="Views\Payment\Index.cshtml" />
+    <Content Include="Views\Payment\MyPayment.cshtml" />
+    <Content Include="Views\Payment\PaymentDetails.cshtml" />
+    <Content Include="Views\PayPal\FailureView.cshtml" />
+    <Content Include="Views\PayPal\Index.cshtml" />
+    <Content Include="Views\PayPal\PaymentWithCreditCard.cshtml" />
+    <Content Include="Views\PayPal\PaymentWithPaypal.cshtml" />
+    <Content Include="Views\PayPal\SuccessView.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

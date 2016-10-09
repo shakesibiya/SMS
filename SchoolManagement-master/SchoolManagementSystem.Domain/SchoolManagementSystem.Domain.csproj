@@ -66,6 +66,7 @@
     <Compile Include="Entities\GroupMember.cs" />
     <Compile Include="Entities\MailModel.cs" />
     <Compile Include="Entities\Mark.cs" />
+    <Compile Include="Entities\Payment.cs" />
     <Compile Include="Entities\Post.cs" />
     <Compile Include="Entities\PostPictures.cs" />
     <Compile Include="Entities\SMS.cs" />
