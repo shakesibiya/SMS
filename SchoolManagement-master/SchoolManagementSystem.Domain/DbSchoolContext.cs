@@ -43,6 +43,5 @@ namespace SchoolManagementSystem.Domain
         {
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
         }
-
     }
 }
