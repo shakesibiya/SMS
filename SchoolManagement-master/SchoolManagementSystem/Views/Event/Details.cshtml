@@ -1,0 +1,104 @@
+﻿@model SchoolManagementSystem.Domain.Entities.Event
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/MainLayout.cshtml";
+}
+<div class="col-md-12">
+<div>
+    @Html.ActionLink("Back to List", "Index")
+<h2>Details Event</h2>
+    <ul class="event-list">
+    <li>
+        <time datetime="@Html.DisplayFor(model => model.EventDate)">
+            <span class="day">@Html.DisplayFor(model => model.EventDate.Day)</span>
+            <span class="month">@ViewBag.Month</span>
+            <span class="year">@Html.DisplayFor(model => model.EventDate.Year)</span>
+        </time>        
+        <div class="info">
+            <h2 class="title">@Html.DisplayFor(model => model.Name)</h2>
+            <p class="desc">@Html.DisplayFor(model => model.Description)</p>
+            <p class="desc" style="font-size: 14px;"><strong>Venue : </strong>@Html.DisplayFor(model => model.Venue)</p>
+            <p class="desc" style="font-size: 14px;"><strong>More : </strong>@Html.DisplayFor(model => model.More)</p>
+        </div>
+    </li>
+    </ul>
+
+</div>
+<hr />
+<div class="row" style="border-radius: 1px;">
+        <div class="col-md-12" style="margin-top: -20px; margin-bottom: 10px;">
+            <h4>Comments <span class="glyphicon glyphicon-pencil"></span></h4>
+            <div class="input-group col-md-12">
+                <input required type="text" style="max-width: 100%;" id="userComment" class="form-control input-md chat-input" placeholder="Write your message here..." />
+                <span class="input-group-btn" onclick="addComment(@Model.Id)">
+                    <a href="#" class="btn btn-primary btn-md"><span class="glyphicon glyphicon-comment"></span> Add Comment</a>
+                </span>
+            </div>
+        </div>
+        <div class="col-md-12" style="height: 300px; overflow-y: auto; top: -3px;" id="commentsList">
+           
+        </div>
+
+    </div>
+</div>
+
+    <script>
+        
+        function key(key, Id){
+            if("@ViewBag.key" == key){
+                return "<span onClick='removeComment(" + Id + ")' class=' text-danger glyphicon glyphicon-remove' style='float: right; font-size: 12px;'></span>";
+            }else{
+                return "";
+            }
+        }
+
+        function getComments(){
+            var url = "../GetComments/" + @Model.Id;
+            $.get(url, function(data){
+                if(data.length != 0){
+                    var items = "<ul class='list-group'>";
+                    $.each(data, function(i, comment){
+                        items += "<li class='list-group-item' style='margin-top: 20px; padding-bottom: 0px;'>";
+                        items +="<h5 class='list-group-item-heading'>";
+                        items += "<a href='#'><strong>";
+                        items += comment.Username;
+                        items += "</strong></a><span style='padding-left:8px; color: #555; opacity: 0.7; font-size: 10px; font-weight: lighter;'>" + comment.Day + " " + comment.Month + " " + comment.Year + "</span>";
+                        items += key(comment.UserId, comment.Id);
+                        items +="</h5>";
+                        items += "<p class='message-content'>" + comment.Text + "</p></li>";
+                    });
+                    items +="</ul>";
+                    $("#commentsList").html(items);
+                }else{
+                    var items = "<div class='text-center animated flip'>";
+                        items +="<img src='"+ "../../imgRepo/walk.gif" + "' class='img-responsive center-block' style='height: 200px;'  />";
+                        items += "<h3 style='position: relative; top:-40px;'>No comments yet</h3>";
+                        $("#commentsList").html(items).css(['height','20px']);
+                }
+            });
+        }
+
+        $(document).ready(function(){
+            getComments();
+        });
+
+    function addComment(Id) {
+        var text =document.getElementById("userComment");
+        var url = "../Comment";
+        if(text.value == "" || text.value.length<2){
+            text.focus();
+        }else{
+            $.post(url,{"Id": Id, "comment" : text.value}, function(data){
+                getComments();
+                document.getElementById("userComment").value="";
+            });
+        }
+    }
+
+    function removeComment(Id){
+        var url = "../removeComment";
+        $.post(url,{"Id": Id}, function(data){
+            getComments();
+        });
+        }
+</script>

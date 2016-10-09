@@ -1,0 +1,61 @@
+﻿@model IEnumerable<AppointmentModel>
+
+@{
+    ViewBag.Title = "Afspraken";
+}
+
+<h2>Afspraken</h2>
+
+<p>
+    @Html.ActionLink("Nieuwe afspraak maken", "AppointmentByCounseler")
+</p>
+<table class="table table-hover table-sorted" data-toggle="table" data-sort-name="lastName">
+    <thead>
+        <tr>
+            <th data-field="date" data-sortable="true">
+                Datum
+            </th>
+            <th data-field="firstName" data-sortable="true">
+                Voornaam
+            </th>
+            <th data-field="lastName" data-sortable="true">
+                Achternaam
+            </th>
+            <th data-field="accepted" data-sortable="true">
+                Geaccepteerd
+            </th>
+            <th data-field="notes" data-sortable="true">
+                Vastgelegd
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @item.DateTime.ToString("d MMMM yyyy HH:mm")
+                </td>
+                <td>
+                    @item.Student.FirstName
+                </td>
+                <td>
+                    @item.Student.LastName
+                </td>
+                <td>
+                    @(item.Accepted ? "Ja" : "Nee")
+                </td>
+                <td>
+                    @if (item.Noted)
+                    {
+                        <a href="@Url.Action("Details", "Appointment", new { id = item.Id })">Vastgelegd</a>
+                    }
+                    else
+                    {
+                        <a href="@Url.Action("Details", "Appointment", new { id = item.Id })">Niet vastgelegd</a>
+                    }
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

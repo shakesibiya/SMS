@@ -1,0 +1,28 @@
+﻿@model SchoolManagementSystem.Domain.Entities.File
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Teacher/TeacherLayout.cshtml";
+}
+
+<h2>Create</h2>
+
+
+@using (Html.BeginForm("Create","Files", FormMethod.Post, new { enctype = "multipart/form-data"}))
+{
+    @Html.AntiForgeryToken()
+    <fieldset>
+        <legend><b>Upload File:</b></legend>
+        <div class="form-group">
+            <p><input type="file" id="file" name="file"/></p>
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Upload" class="btn btn-default" />
+            </div>
+        </div>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+

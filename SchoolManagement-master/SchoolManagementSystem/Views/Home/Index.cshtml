@@ -1,0 +1,184 @@
+﻿@model SchoolManagementSystem.Models.IndexModelView
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Home/_Home.cshtml";
+}
+
+@* Main *@
+<div class="col-md-12 text-center">
+    <div class="col-md-9 text-left animated" style="padding: 0px; animation-duration: 2s;">
+
+        <div class="panel panel-default animated flipInX" style="animation-delay: 2s;">
+            <div class="panel-heading">
+                <img src="~/imgRepo/News.png" style="width: 120px;" class="img-responsive center-block" />
+                <h4 class="text-center">Notice Board</h4>
+            </div>
+            <div class="panel-body">
+                <table class="table table-responsive table-striped">
+                    <tbody>
+                        @if (Model.Posts.Count != 0)
+                        {
+                            foreach (var post in Model.Posts)
+                            {
+                                <tr>
+                                    <td>
+                                        <a href='@Url.Action("Details", "News", new { Id= @post.Id})' style="text-decoration: none;">
+                                            <h3>@post.Topic</h3>
+                                        </a>
+                                    </td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <p style="padding-top: 20px; font-size: 19px;" class="text-center">
+                                <span class="glyphicon glyphicon-exclamation-sign breathe" style="font-size: 50px;"></span>
+                                <br />
+                                There are no Posts created.
+                            </p>
+                        }
+                        @*@if (Model.Events.Count != 0)
+                            {
+                                <p style="padding-left: 5px;">@Html.ActionLink("More News", "Index", "News")</p>
+                            }*@
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+
+        <div class="panel panel-default animated flipInX" style="animation-delay: 1.5s;">
+            <div class="panel-heading">
+                <img src="~/imgRepo/user.png" class="img-responsive img-circle center-block" />
+                <h4 class="text-center">New Students<span style="color: #808080; font-size:x-small; padding-left: 8px;">@ViewBag.Students Student(s) in total</span></h4>
+            </div>
+
+            <div class="panel-body">
+                <table class="table table-responsive">
+                    <thead>
+                        <tr>
+                            <th>Name</th>
+                            <th>Email</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @if (Model.Students.Count != 0)
+            {
+                foreach (var student in Model.Students)
+                {
+                                <tr>
+                                    <td>@student.FirstName &nbsp; @student.LastName</td>
+                                    <td>@student.Email</td>
+                                </tr>
+                            }
+                        }
+                        else
+                        {
+                            <p style="padding-top: 20px; font-size: 19px;" class="text-center">
+                                <span class="glyphicon glyphicon-exclamation-sign breathe" style="font-size: 50px;"></span>
+                                <br />
+                                There are no events created.
+                            </p>
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <br />
+
+        <div class="panel panel-default animated flipInX" style="animation-delay: 1s;">
+            <div class="panel-heading">
+                <img src="~/imgRepo/Calender.png" style="width: 130px;" class="img-responsive img-circle center-block" />
+                <h4 class="text-center">Recent Events <span style="color: #808080; font-size:x-small; padding-left: 8px;">@ViewBag.EventCount events in total</span></h4>
+            </div>
+            <div>
+                    @if (Model.Events.Count != 0)
+                    {
+                    <table class="table table-striped table-responsive">
+                        <tr>
+                            <th>Event Name</th>
+                            <th>Date</th>
+                            <th>Actions</th>
+                        </tr>
+                        @foreach (var item in Model.Events)
+                            {
+                            <tr>
+                                <td>@item.Name</td>
+                                <td>@item.EventDate</td>
+                                <td>@Html.ActionLink("Details", "Details", "Event", new { id = item.Id }, new { @class = "btn btn-default btn-sm", @style = "border-radius: 0px;" })</td>
+                            </tr>
+                            }
+                    </table>
+                    }
+                    else
+                    {
+                    <p style="padding-top: 20px; font-size: 19px;" class="text-center">
+                        <span class="glyphicon glyphicon-exclamation-sign breathe" style="font-size: 50px;"></span>
+                        <br />
+                        There are no events created.
+                    </p>
+                    }
+                    @if (Model.Events.Count != 0)
+                    {
+                    <p style="padding-left: 20px;">@Html.ActionLink("More Events", "Index", "Event")</p>
+                    }
+
+                </div>
+        </div>
+
+    </div>
+
+    <div class="col-md-3 right">
+
+        <div class="panel panel-primary">
+            <div class="panel-heading" style="">
+                <span class="first animated slideInLeft">I</span>nfo Panel
+            </div>
+            <div class="text-left" style="padding: 10px;">
+                <p style="border-bottom: 1px solid #ccc;"><strong><span class="glyphicon glyphicon-time first"></span> </strong> <span id="txt" style="padding-left: 10px;"></span></p>
+                <p style="border-bottom: 1px solid #ccc; padding-top: 10px;"><strong><span style="font-size: 19px; padding-left: 1px;" class="glyphicon glyphicon-calendar"></span> </strong> <span id="date" style="padding-left: 10px;">22</span></p>
+                <p style="border-bottom: 1px solid #ccc;"><strong><span class="glyphicon glyphicon-registration-mark first"></span> </strong> <span style="padding-left: 10px;">@Html.ActionLink("Apply Now", "Create", "Application")</span></p>
+            </div>
+        </div>
+
+        <div class="panel panel-primary">
+            <div class="panel-heading" style="">
+                <span class="first">M</span>y School Stat
+            </div>
+            <div class="text-left" style="padding: 10px;">
+                <p><strong>Students : </strong> @ViewBag.Students</p>
+                <p><strong>Teachers : </strong> @ViewBag.Teachers</p>
+            </div>
+        </div>
+
+    </div>
+</div>
+
+<script>
+    function startTime() {
+        var monthNames = ["January", "February", "March", "April", "May", "June",
+  "July", "August", "September", "October", "November", "December"
+        ];
+        var today = new Date();
+        var h = today.getHours();
+        var m = today.getMinutes();
+        var s = today.getSeconds();
+
+        var date = "<span style='font-size: 18px; padding-left:2px; font-weight: bold;'>" +today.getDate() + "</span> " + monthNames[today.getMonth()] + " " + today.getFullYear();
+
+        m = checkTime(m);
+        s = checkTime(s);
+        document.getElementById('txt').innerHTML =
+        "<span style='font-size: 18px; font-weight: bold;'>" + h + "</span>" + ":"
+        + "<span style='font-size: 16px; font-weight: bold;'>" + m + "</span>" + ":" + s
+        var t = setTimeout(startTime, 500);
+
+        document.getElementById('date').innerHTML = date;
+    }
+    function checkTime(i) {
+        if (i < 10) { i = "0" + i }  // add zero in front of numbers < 10
+        return i
+    }
+
+    startTime()
+</script>

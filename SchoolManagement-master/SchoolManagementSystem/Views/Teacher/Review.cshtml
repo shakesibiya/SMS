@@ -1,0 +1,20 @@
+﻿@model SchoolManagementSystem.Models.PostView
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/MainLayout.cshtml";
+}
+
+<h2>@Model.Post.Topic</h2>
+<p style="color: #888;"><strong>Date : </strong>@Model.Post.Date <br />
+<span><strong >Author : </strong>@Model.Post.Author</span></p>
+<hr />
+<div class="col-md-12">
+    @if (Model.Pics != null)
+    {
+    <img src="~/imgRepo/PostRepo/@Model.Pics.FileName" align="left" class="img-responsive img-thumbnail" style="max-height: 380px; padding: 12px;" />
+    }
+    <p class="text">
+        @Model.Post.Text
+    </p>
+</div>

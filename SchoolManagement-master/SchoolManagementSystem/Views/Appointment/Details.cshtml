@@ -1,0 +1,81 @@
+﻿@model Appointment
+
+@{
+    ViewBag.Title = "SLB gesprek afspraak";
+}
+
+<h2>SLB gesprek afspraak</h2>
+
+<hr />
+<div>
+    <dl class="dl-horizontal">
+        <dt>
+            Student
+        </dt>
+
+        <dd>
+            @Model.Student.GetFullName()
+        </dd>
+
+        <dt>
+            SLB'er
+        </dt>
+
+        <dd>
+            @Model.Counseler.GetFullName()
+        </dd>
+
+        <dt>
+            Datum
+        </dt>
+
+        <dd>
+            @Model.DateTime.ToString("dddd d MMMM HH:mm")u
+        </dd>
+
+        <dt>
+            Locatie
+        </dt>
+
+        <dd>
+            @Model.Location
+        </dd>
+
+        <dt>
+            Geaccepteerd
+        </dt>
+
+        <dd>
+            @Html.CheckBoxFor(m => m.Accepted, new { @readonly = "readonly", disabled = "disabled" })
+        </dd>
+
+        <dt>
+            Vastgelegd
+        </dt>
+
+        <dd>
+            @Html.CheckBoxFor(m => m.Noted, new { @readonly = "readonly", disabled = "disabled" })
+        </dd>
+
+    </dl>
+</div>
+
+<p>
+    @if (ViewBag.IsCounseler)
+    {
+        if (Model.Noted)
+        {
+            <a href="@Url.Action("Details", "Counseling", new { appointmentId = Model.Id })" class="btn btn-primary">Vastlegging bekijken</a>
+        }
+        else
+        {
+            <a href="@Url.Action("Create", "Counseling", new { appointmentId = Model.Id })" class="btn btn-primary">Gesprek vastleggen</a>
+        }
+        @:|
+        @Html.ActionLink("Terug naar het overzicht", "List", "Appointment")
+    }
+    else
+    {
+        <a href="/">Terug naar home</a>
+    }
+</p>

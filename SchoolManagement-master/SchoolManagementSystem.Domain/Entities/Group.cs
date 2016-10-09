@@ -1,0 +1,22 @@
+﻿using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+
+namespace SchoolManagementSystem.Domain.Entities
+{
+    public class Group
+    {
+        [Key]
+        [Required(ErrorMessage = "The field {0} is required")]
+        public int GroupId { get; set; }
+
+        //Gets or sets the group description:
+
+        [Required(ErrorMessage = "The field {0} is required")]
+        [StringLength(50, ErrorMessage = "The field {0} can contain maximun {1} and minimun {2} characters", MinimumLength = 3)]
+        public string Description { get; set; }
+
+        public virtual ICollection<GroupMember> GroupMembers { get; set; }
+
+        public virtual ICollection<VotingGroup> VotingGroups { get; set; }
+    }
+}

@@ -1,0 +1,68 @@
+﻿@model SchoolManagementSystem.Domain.Entities.ApplicationForm
+
+@{
+    ViewBag.Title = "Approve";
+    Layout = "SecretaryLayout.cshtml";
+}
+<h2>Approve</h2>
+<h3>Are you sure you want to Approve this student's application?</h3>
+<div>
+    <h4>Student Details</h4>
+    <hr />
+    <dl class="dl-horizontal">
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.FirstName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.LastName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.LastName)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Address)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Address)
+        </dd>
+        @*<dt>
+                @Html.DisplayNameFor(model => model.ClassName)
+            </dt>
+
+            <dd>
+                @Html.DisplayFor(model => model.ClassName)
+            </dd>*@
+        <dt>
+            @Html.DisplayNameFor(model => model.MobilePhoneNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.MobilePhoneNumber)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Nationality)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Nationality)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Religion)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Religion)
+        </dd>
+    </dl>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Approve Registration" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Students")
+        </div>
+    }
+</div>
+

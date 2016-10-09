@@ -1,0 +1,66 @@
+﻿@model SchoolManagementSystem.Domain.Entities.Student
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Student/StudentLayout.cshtml";
+}
+
+<div class="col-lg-12">
+    <h1 class="page-header">My Details</h1>
+</div>
+<div class="row">
+    <h1>
+        <img src="~/imgRepo/PostRepo/@Model.Avats.FileName" style="width:160px;height:160px; background: #FFFFFF;
+    margin: auto;
+    -moz-border-radius: 60px;
+    border-radius: 100px;
+    padding: 6px;
+    box-shadow: 0px 0px 20px #888;" />
+    </h1>
+</div>
+<div class="row">
+    <label class="col-lg-1 text-right">PIN:</label>@Model.PIN
+</div>
+<div class="row">
+    <label class="col-lg-1 text-right">First Name:</label> @Model.FirstName
+</div>
+<div class="row">
+    <label class="col-lg-1 text-right">Last Name:</label> @Model.LastName
+</div>
+<div class="row">
+    <label class="col-lg-1 text-right">Class:</label> @ViewBag.className
+</div>
+<div class="row">
+    <label class="col-lg-1 text-right">Phone Number:</label> @Model.PhoneNumber
+</div>
+<div class="row">
+    <label class="col-lg-1 text-right">Mobile Phone:</label> @Model.MobilePhoneNumber
+</div>
+<div class="row">
+    <label class="col-lg-1 text-right">Nationality:</label> @Model.Nationality
+</div>
+<div class="row">
+    <label class="col-lg-1 text-right">Religion:</label> @Model.Religion
+</div>
+<div class="row">
+    <label class="col-lg-1 text-right">Province:</label> @Model.Province
+</div>
+<div class="row">
+    <label class="col-lg-1 text-right">City:</label> @Model.City
+</div>
+<div class="row">
+    <label class="col-lg-1 text-right">Postal Address:</label> @Model.PostalAddress
+</div>
+<div class="row">
+    <label class="col-lg-1 text-right">Street Address:</label> @Model.StreetAddress
+</div>
+<div class="row">
+    <label class="col-lg-1 text-right">Suburbs:</label> @Model.Surbs
+</div>
+<div class="row">
+    <label class="col-lg-1 text-right">Postal Code:</label> @Model.PostalCode
+</div>
+@using (Html.BeginForm("UploadAvatar", "Avatar", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <input type="File" name="file" class="form-control" accept=".png,.jpg,.jpeg,.gif,.tif" />
+    <input type="submit" value="Add picture" class="btn btn-sm btn-success" />
+}

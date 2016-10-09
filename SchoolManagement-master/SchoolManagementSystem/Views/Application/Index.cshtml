@@ -1,0 +1,96 @@
+﻿@model IEnumerable<SchoolManagementSystem.Models.ApplicationViewModel>
+    @{
+        ViewBag.Title = "Index";
+        Layout = "~/Views/Secretary/SecretaryLayout.cshtml";
+    }
+    <h3>Students Applications <sup class="badge alert-danger">@ViewBag.RequestCount</sup></h3>
+    <p style="color:darkgray">@Model.Count() Applications in Total</p>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="table-responsive">
+                <table class="table table-bordered table-hover table-striped">
+                    <thead>
+                        <tr>
+                            <th>FirstName</th>
+                            <th>LastName</th>
+                            <th>Email</th>
+                            <th>Phone</th>
+                            <th>Mobile</th> 
+                            <th>Class</th>                          
+                            <th>Nationality</th>
+                            <th>Religion</th>
+                            <th>Status</th>
+                            <th>Province</th>
+                            <th>City</th>
+                            <th>Postal Address</th>
+                            <th>Street Address</th>
+                            <th>Suburb</th>
+                            <th>Postal Code</th>
+                            <th>Registered Date</th>
+                            <th>Approve Student</th>
+                        </tr>
+                        @if (Model != null)
+                        {
+                            foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td>
+                                        @item.application.FirstName
+                                    </td>
+                                    <td>
+                                        @item.application.LastName
+                                    </td>
+                                    <td>
+                                        @item.application.Email
+                                    </td>
+                                    <td>
+                                        @item.application.PhoneNumber
+                                    </td>
+                                    <td>
+                                        @item.application.MobilePhoneNumber
+                                    </td>
+                                    <td>
+                                        @item.ClassName
+                                    </td>
+                                    <td>
+                                        @item.application.Nationality
+                                    </td>
+                                    <td>
+                                        @item.application.Religion
+                                    </td>
+                                    <td>
+                                        @item.application.Read
+                                    </td>
+                                    <td>
+                                        @item.application.Province
+                                    </td>
+                                    <td>
+                                        @item.application.City
+                                    </td>
+                                    <td>
+                                        @item.application.PostalAddress
+                                    </td>
+                                    <td>
+                                        @item.application.StreetAddress
+                                    </td>
+                                    <td>
+                                        @item.application.Surbs
+                                    </td>
+                                    <td>
+                                        @item.application.PostalCode
+                                    </td>
+                                    <td>
+                                        @item.application.Date
+                                    </td>
+                                    <td>
+                                        @*@Html.ActionLink("Update", "Edit", new { id = item.Id }, new { @class = "btn btn-warning btn-sm" }) |*@
+                                        @Html.ActionLink("ApproveStudent", "ApproveStudent","Secretary", new { id = item.application.StudentID }, new { @class = "btn btn-success btn-sm" })
+                                    </td>
+                                </tr>
+                            }
+                        }
+                </table>
+                <a href="@Url.Action("Index","Secretary")" class="btn btn-default btn-sm">
+                    <span>Trash Can</span><span class="glyphicon glyphicon-trash"></span>
+                </a>
+                <br /><br />

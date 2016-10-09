@@ -1,0 +1,97 @@
+﻿@model SchoolManagementSystem.Models.StudentIndexViewModelcs
+@{
+    Layout = "StudentLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Student Page</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<!-- /.row -->
+<div class="row">
+    <div class="col-lg-3 col-md-6">
+        <div class="panel panel-green">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-bars fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                        @*<div class="huge">26</div>*@
+                        <div>Personal Details</div>
+                    </div>
+                </div>
+            </div>
+            <a href="@Url.Action("Details", "Student")">
+                <div class="panel-footer">
+                    <span class="pull-left">View</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+    <div class="col-lg-3 col-md-6">
+        <div class="panel panel-primary">
+            <div class="panel-heading">
+                <div class="row">
+                    <div class="col-xs-3">
+                        <i class="fa fa-graduation-cap fa-5x"></i>
+                    </div>
+                    <div class="col-xs-9 text-right">
+                       @* <div class="huge">12</div>*@
+                        <div>My Performance</div>
+                    </div>
+                </div>
+            </div>
+            <a href="@Url.Action("Overview", "Student")">
+                <div class="panel-footer">
+                    <span class="pull-left">View</span>
+                    <span class="pull-right"><i class="fa fa-arrow-circle-right"></i></span>
+                    <div class="clearfix"></div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+<!-- /.row -->
+
+
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <i class="fa fa-bar-chart-o fa-fw"></i>Current month situation
+    </div>
+    <!-- /.panel-heading -->
+    <div class="panel-body">
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="row container-fluid" style="margin-bottom: 10px">
+                    <span class="label label-primary col-lg-2" style="font-size: 15px">Total marks:</span>
+                    <span class="col-lg-2"> <b>@Model.TotalMarks</b></span>
+                </div>
+
+                 <div class="row container-fluid" style="margin-bottom: 10px">
+                    <span class="label label-success col-lg-2" style="font-size: 15px">Good marks: </span>
+                    <span class="col-lg-2"> <b>@Model.GoodMarks</b></span>
+                </div>
+
+                <div class="row container-fluid" style="margin-bottom: 10px">
+                    <span class="label label-warning col-lg-2" style="font-size: 15px">Negative marks:</span>
+                    <span class="col-lg-2"> <b>@Model.BadMarks</b></span>
+                </div>
+
+                <div class="row container-fluid" style="margin-bottom: 10px">
+                    <span class="label label-danger col-lg-2" style="font-size: 15px">Absences:</span>
+                    <span class="col-lg-2"> <b>@Model.Abscences</b></span>
+                </div>
+            </div>
+            <!-- /.col-lg-12 (nested) -->
+        </div>
+        <!-- /.row -->
+    </div>
+    <!-- /.panel-body -->
+</div>
+
+<!-- /.row -->

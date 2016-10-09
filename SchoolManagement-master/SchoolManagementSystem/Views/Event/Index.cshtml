@@ -1,0 +1,27 @@
+﻿@model IEnumerable<SchoolManagementSystem.Domain.Entities.Event>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/MainLayout.cshtml";
+}
+<div class="col-md-8">
+    <h3>Events</h3>
+
+        @if (Model != null)
+        {
+            foreach (var item in Model)
+            {
+                <a href="@Url.Action("Details",new { id = item.Id })">
+                    <div class="alert alert-info">
+                        <h4>@item.Name</h4>
+                        <p style="font-size: 10px;">@item.EventDate.Date.Day</p>
+                    </div>
+                </a>
+            }
+        }
+    
+</div>
+
+
+
+        

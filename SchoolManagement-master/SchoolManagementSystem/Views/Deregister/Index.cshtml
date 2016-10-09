@@ -1,0 +1,53 @@
+﻿@model List<SchoolManagementSystem.Models.StudentTrushView>
+
+@{
+    ViewBag.Title = "Students";
+    Layout = "~/Views/Secretary/SecretaryLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <h1 class="page-header">Students:</h1>
+    </div>
+    <!-- /.col-lg-12 -->
+</div>
+<div class="row">
+    <div class="col-lg-12">
+        <div class="table-responsive">
+            <table class="table table-bordered table-hover table-striped">
+                <thead>
+                    <tr>
+                        <th>PIN</th>
+                        <th>FirstName</th>
+                        <th>LastName</th>
+                        <th>Address</th>
+                        <th>Class</th>
+                        <th>Mobile</th>
+                        <th>Phone</th>
+                        <th>Nationality</th>
+                        <th>Religion</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var student in Model)
+                    {
+                        <tr>
+                            <td>@student.StudentTrush.PIN</td>
+                            <td>@student.StudentTrush.FirstName</td>
+                            <td>@student.StudentTrush.LastName</td>
+                            <td>@student.StudentTrush.Address</td>
+                            <td>@student.ClassName</td>
+                            <td>@student.StudentTrush.MobilePhoneNumber</td>
+                            <td>@student.StudentTrush.PhoneNumber</td>
+                            <td>@student.StudentTrush.Nationality</td>
+                            <td>@student.StudentTrush.Religion</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+        <!-- /.table-responsive -->
+    </div>
+    <!-- /.col-lg-12 (nested) -->
+</div>
+<!-- /.row -->
