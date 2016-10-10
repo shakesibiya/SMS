@@ -728,6 +728,7 @@
     <Content Include="Views\Votings\Vote.cshtml" />
     <Content Include="Views\Event\Info.cshtml" />
     <Content Include="Views\Votings\Info.cshtml" />
+    <Content Include="Views\Student\StudentStats.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
