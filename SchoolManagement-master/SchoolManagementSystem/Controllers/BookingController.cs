@@ -53,16 +53,15 @@ namespace SchoolManagementSystem.Controllers
             return View(booking);
         }
 
-        public ActionResult Create()
+        public ActionResult Create(int? id)
         {
-            ViewBag.Event = new SelectList(db.Event, "Id", "Name");
+            ViewBag.Event = new SelectList(db.Event, "Id", "Name", id);
             return View();
         }
         
         [HttpPost]
         public ActionResult Create(Booking booking)
         {
-            ViewBag.Event = new SelectList(db.Event, "Id", "Name", booking.Event.Id);
             if (ModelState.IsValid)
             {
                 db.Bookings.Add(booking);
