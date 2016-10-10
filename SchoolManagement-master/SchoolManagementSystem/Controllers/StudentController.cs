@@ -4,6 +4,8 @@ using System.Web.Mvc;
 using SchoolManagementSystem.Domain;
 using SchoolManagementSystem.Domain.Entities;
 using SchoolManagementSystem.Models;
+using System.Web.Helpers;
+using System.Collections.Generic;
 
 namespace SchoolManagementSystem.Controllers
 {
@@ -133,6 +135,43 @@ namespace SchoolManagementSystem.Controllers
             }
 
             return null;
+        }
+        public ActionResult StudentStats()
+        {
+            return View();
+        }
+        public ActionResult Graph1()
+        {
+            var sub = db.Classes.ToList();
+
+            List<string> ClassName = new List<string>();
+            List<string> ClassNum = new List<string>();
+
+            int cu = 0;
+
+
+            foreach (Class stats in sub)
+            {
+               
+                ClassName.Add(stats.Name);
+
+
+                cu = (from x in db.Students
+                      where x.Class_Id == stats.Id
+                      select x).Count();
+
+                ClassNum.Add(cu.ToString());
+                
+
+            }
+            var bytes = new Chart(width: 600, height: 400)
+            .AddSeries(
+            chartType: "Column",
+            legend: "InservEvalus vs Status",
+            xValue: ClassName.ToArray(),
+            yValues: ClassNum.ToArray())
+            .GetBytes("png");
+            return File(bytes, "image/png");
         }
     }
 }
