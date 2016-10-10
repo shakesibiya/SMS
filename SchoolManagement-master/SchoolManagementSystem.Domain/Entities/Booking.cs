@@ -16,8 +16,6 @@ namespace SchoolManagementSystem.Domain.Entities
         public string Email { get; set; }
         public string Status { get; set; }
 
-        public int MyProperty { get; set; }
-
         public virtual Event Event { get; set; }
     }
 }
