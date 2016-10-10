@@ -1,106 +1,136 @@
-﻿using SchoolManagementSystem.Domain.Entities;
-using System;
-using System.Collections.Generic;
+﻿using SchoolManagementSystem.Domain;
+using SchoolManagementSystem.Domain.Entities;
+using SchoolManagementSystem.Models;
+using System.Data.Entity;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace SchoolManagementSystem.Controllers
 {
     public class BookingController : Controller
     {
-        //
-        // GET: /Booking/
-
+        DbSchoolRepository repository = new DbSchoolRepository();
+        private DbSchoolContext db = new DbSchoolContext();
+        
         public ActionResult Index()
         {
-            return View();
+            var currUser = (UserModel)System.Web.HttpContext.Current.Session["user"];
+            var bookings = repository.Bookings;
+
+            if (currUser.Role != "Secretary")
+            {
+                return RedirectToAction("MyBookings", "Booking");
+            }
+
+            return View(bookings.ToList());
         }
 
-        //
-        // GET: /Booking/Details/5
+        public ActionResult MyBookings() // for student
+        {
+            var currUser = (UserModel)System.Web.HttpContext.Current.Session["user"];
+            var bookings = repository.Bookings.Where(b => b.Student.PIN == currUser.Login);
 
+            return View(bookings.ToList());
+        }
+        
         public ActionResult Details(int id)
         {
-            return View();
+            Booking booking = db.Bookings.Find(id);
+            if (booking == null)
+            {
+                return HttpNotFound();
+            }
+            return View(booking);
         }
 
-        //
-        // GET: /Booking/Create
+        public ActionResult MyDetails(int id) // for student
+        {
+            Booking booking = db.Bookings.Find(id);
+            if (booking == null)
+            {
+                return HttpNotFound();
+            }
+            return View(booking);
+        }
 
         public ActionResult Create()
         {
+            ViewBag.Event = new SelectList(db.Event, "Id", "Name");
             return View();
         }
-
-        //
-        // POST: /Booking/Create
-
+        
         [HttpPost]
         public ActionResult Create(Booking booking)
         {
-            try
+            ViewBag.Event = new SelectList(db.Event, "Id", "Name", booking.Event.Id);
+            if (ModelState.IsValid)
             {
-                // TODO: Add insert logic here
-
+                db.Bookings.Add(booking);
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            return View(booking);
         }
-
-        //
-        // GET: /Booking/Edit/5
-
+        
         public ActionResult Edit(int id)
         {
-            return View();
-        }
+            ViewBag.Event = new SelectList(db.Event, "Id", "Name");
+            Booking booking = db.Bookings.Find(id);
 
-        //
-        // POST: /Booking/Edit/5
-
-        [HttpPost]
-        public ActionResult Edit(int id, Booking booking)
-        {
-            try
+            if (booking == null)
             {
-                // TODO: Add update logic here
+                return HttpNotFound();
+            }
 
+            return View(booking);
+        }
+        
+        [HttpPost]
+        public ActionResult Edit(Booking booking)
+        {
+            ViewBag.Event = new SelectList(db.Event, "Id", "Name", booking.Event.Id);
+
+            if (ModelState.IsValid)
+            {
+                db.Entry(booking).State = EntityState.Modified;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
-        }
 
-        //
-        // GET: /Booking/Delete/5
+            return View(booking);
+        }
 
         public ActionResult Delete(int id)
         {
-            return View();
+            Booking booking = db.Bookings.Find(id);
+
+            if (booking == null)
+            {
+                return HttpNotFound();
+            }
+
+            return View(booking);
         }
 
-        //
-        // POST: /Booking/Delete/5
-
-        [HttpPost]
-        public ActionResult Delete(int id)
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
         {
-            try
-            {
-                // TODO: Add delete logic here
+            Booking booking = db.Bookings.Find(id);
+            db.Bookings.Remove(booking);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
 
-                return RedirectToAction("Index");
-            }
-            catch
+        private ActionResult CheckUserRights()
+        {
+            var currUser = (UserModel)System.Web.HttpContext.Current.Session["user"];
+
+            if (currUser == null || currUser.Role != "Secretary" && currUser.Role != "Student")
             {
-                return View();
+                return RedirectToAction("Login", "Account");
             }
+
+            return null;
         }
     }
 }
