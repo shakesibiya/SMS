@@ -133,6 +133,7 @@
     <Compile Include="Controllers\ApplicationController.cs" />
     <Compile Include="Controllers\AppointmentController.cs" />
     <Compile Include="Controllers\AvatarController.cs" />
+    <Compile Include="Controllers\BookingController.cs" />
     <Compile Include="Controllers\DeregisterController.cs" />
     <Compile Include="Controllers\DirectorController.cs" />
     <Compile Include="Controllers\EventController.cs" />
@@ -750,6 +751,13 @@
     <Content Include="Views\PayPal\PaymentWithCreditCard.cshtml" />
     <Content Include="Views\PayPal\PaymentWithPaypal.cshtml" />
     <Content Include="Views\PayPal\SuccessView.cshtml" />
+    <Content Include="Views\Booking\Index.cshtml" />
+    <Content Include="Views\Booking\MyBookings.cshtml" />
+    <Content Include="Views\Booking\Details.cshtml" />
+    <Content Include="Views\Booking\Create.cshtml" />
+    <Content Include="Views\Booking\MyDetails.cshtml" />
+    <Content Include="Views\Booking\Edit.cshtml" />
+    <Content Include="Views\Booking\Delete.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
