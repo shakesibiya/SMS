@@ -22,7 +22,7 @@
         </div>
             @*@Html.ActionLink("Book Now", "Create", "Booking", new { @class = "btn btn-success" })*@
         @*@Html.ActionLink("Book Now", "Create", "Booking")*@
-        @Html.ActionLink("Book Now", "Create", "Booking", new { id = Model.Id }, null)
+        @Html.ActionLink("Book Now", "Create", "Booking", new { id = Model.Id }, new { @class = "btn btn-success" })
     </li>
     </ul>
 

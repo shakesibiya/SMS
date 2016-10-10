@@ -55,7 +55,6 @@ namespace SchoolManagementSystem.Controllers
 
         public ActionResult Create(int? id)
         {
-            ViewBag.Event = new SelectList(db.Event, "Id", "Name", id);
             return View();
         }
         
@@ -73,7 +72,6 @@ namespace SchoolManagementSystem.Controllers
         
         public ActionResult Edit(int id)
         {
-            ViewBag.Event = new SelectList(db.Event, "Id", "Name");
             Booking booking = db.Bookings.Find(id);
 
             if (booking == null)
@@ -87,8 +85,6 @@ namespace SchoolManagementSystem.Controllers
         [HttpPost]
         public ActionResult Edit(Booking booking)
         {
-            ViewBag.Event = new SelectList(db.Event, "Id", "Name", booking.Event.Id);
-
             if (ModelState.IsValid)
             {
                 db.Entry(booking).State = EntityState.Modified;
@@ -123,7 +119,6 @@ namespace SchoolManagementSystem.Controllers
         private ActionResult CheckUserRights()
         {
             var currUser = (UserModel)System.Web.HttpContext.Current.Session["user"];
-
             if (currUser == null || currUser.Role != "Secretary" && currUser.Role != "Student")
             {
                 return RedirectToAction("Login", "Account");
