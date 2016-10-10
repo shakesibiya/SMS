@@ -77,6 +77,12 @@ namespace SchoolManagementSystem.Domain
         {
             get { return context.Votings; }
         }
+
+        public IEnumerable<Payroll> Payrolls
+        {
+            get { return context.Payrolls; }
+        }
+
         public int AddEvent (Event item)
         {
             context.Event.Add(item);
@@ -158,6 +164,12 @@ namespace SchoolManagementSystem.Domain
         public int AddAppointment(Appointment item)
         {
             context.Appointment.Add(item);
+            return context.SaveChanges();
+        }
+
+        public int AddPayroll(Payroll item)
+        {
+            context.Payrolls.Add(item);
             return context.SaveChanges();
         }
 
