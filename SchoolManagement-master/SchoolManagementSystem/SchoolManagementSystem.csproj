@@ -133,6 +133,7 @@
     <Compile Include="Controllers\ApplicationController.cs" />
     <Compile Include="Controllers\AppointmentController.cs" />
     <Compile Include="Controllers\AvatarController.cs" />
+    <Compile Include="Controllers\BookingController.cs" />
     <Compile Include="Controllers\DeregisterController.cs" />
     <Compile Include="Controllers\DirectorController.cs" />
     <Compile Include="Controllers\EventController.cs" />
