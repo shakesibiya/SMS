@@ -69,7 +69,7 @@ namespace SchoolManagementSystem.Controllers
         [HttpPost]
         public ActionResult Create(Payroll payroll)
         {
-            ViewBag.PIN = new SelectList(db.Teachers, "PIN", "FirstName", payroll.Teacher.PIN);
+            ViewBag.PIN = new SelectList(db.Teachers, "PIN", "FirstName");
             if (ModelState.IsValid)
             {
                 db.Payrolls.Add(payroll);
