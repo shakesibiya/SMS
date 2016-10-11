@@ -143,6 +143,7 @@
     <Compile Include="Controllers\NewsController.cs" />
     <Compile Include="Controllers\PaymentController.cs" />
     <Compile Include="Controllers\PayPalController.cs" />
+    <Compile Include="Controllers\PayrollController.cs" />
     <Compile Include="Controllers\PostPicturesController.cs" />
     <Compile Include="Controllers\SecretaryController.cs" />
     <Compile Include="Controllers\SmsController.cs" />
@@ -166,6 +167,7 @@
     <Compile Include="Models\PaymentViewModel.cs" />
     <Compile Include="Models\PaypalSetUp\Configuration.cs" />
     <Compile Include="Models\PaypalSetUp\Logger.cs" />
+    <Compile Include="Models\PayrollViewModel.cs" />
     <Compile Include="Models\PostView.cs" />
     <Compile Include="Models\SecretaryAddTeacherViewModel.cs" />
     <Compile Include="Models\SecretarySearchModel.cs" />
@@ -758,6 +760,7 @@
     <Content Include="Views\Booking\MyDetails.cshtml" />
     <Content Include="Views\Booking\Edit.cshtml" />
     <Content Include="Views\Booking\Delete.cshtml" />
+    <Content Include="Views\Payroll\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
