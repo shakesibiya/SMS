@@ -208,6 +208,7 @@
     <Compile Include="Models\PostView.cs" />
     <Compile Include="Models\SecretaryAddTeacherViewModel.cs" />
     <Compile Include="Models\SecretarySearchModel.cs" />
+    <Compile Include="Models\Sms.cs" />
     <Compile Include="Models\StudentIndexViewModelcs.cs" />
     <Compile Include="Models\StudentMonthOverviewModel.cs" />
     <Compile Include="Models\StudentTrushView.cs" />

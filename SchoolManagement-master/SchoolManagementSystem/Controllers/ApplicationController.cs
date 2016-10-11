@@ -1,9 +1,11 @@
-﻿using SchoolManagementSystem.Domain;
+﻿using SchoolManagementSchool.Models;
+using SchoolManagementSystem.Domain;
 using SchoolManagementSystem.Domain.Entities;
 using SchoolManagementSystem.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Mail;
 using System.Web.Mvc;
 
 namespace SchoolManagementSystem.Controllers
@@ -78,7 +80,17 @@ namespace SchoolManagementSystem.Controllers
             ViewBag.message = "A new student was successfully added.";
             List<Class> model = repository.Classes.ToList();
 
-            
+            string mail = Request["Email"];
+            EmailClass obj = new EmailClass();
+            obj.From = new MailAddress("21449476@dut4life.ac.za");
+            List<MailAddress> tolist = new List<MailAddress>();
+            tolist.Add(new MailAddress(mail));
+            obj.Body = "Thank you for your registration your user name is " + cr.FirstName;
+            obj.to = tolist;
+            obj.Method();
+
+
+
             return RedirectToAction("Info");
 
             //try
