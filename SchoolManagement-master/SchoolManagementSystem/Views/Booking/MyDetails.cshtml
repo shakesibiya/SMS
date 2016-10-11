@@ -1,0 +1,51 @@
+﻿@model SchoolManagementSystem.Domain.Entities.Booking
+
+@{
+    ViewBag.Title = "MyDetails";
+    Layout = "~/Views/Student/StudentLayout.cshtml";
+}
+
+<h2>MyDetails</h2>
+
+<fieldset>
+    <legend>Booking</legend>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.UserName)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.UserName)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Date)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Date)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.BookTime)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BookTime)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Email)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Email)
+    </div>
+
+    <div class="display-label">
+         @Html.DisplayNameFor(model => model.Status)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.Status)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Bookingid }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

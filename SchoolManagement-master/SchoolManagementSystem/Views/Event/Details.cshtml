@@ -20,6 +20,9 @@
             <p class="desc" style="font-size: 14px;"><strong>Venue : </strong>@Html.DisplayFor(model => model.Venue)</p>
             <p class="desc" style="font-size: 14px;"><strong>More : </strong>@Html.DisplayFor(model => model.More)</p>
         </div>
+            @*@Html.ActionLink("Book Now", "Create", "Booking", new { @class = "btn btn-success" })*@
+        @*@Html.ActionLink("Book Now", "Create", "Booking")*@
+        @Html.ActionLink("Book Now", "Create", "Booking", new { id = Model.Id }, new { @class = "btn btn-success" })
     </li>
     </ul>
 
