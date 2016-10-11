@@ -5,47 +5,67 @@
     Layout = "~/Views/Student/StudentLayout.cshtml";
 }
 
-<h2>MyDetails</h2>
+<div>
+    <h4>Booking Details</h4>
+    <hr />
 
-<fieldset>
-    <legend>Booking</legend>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.UserName)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.UserName)
-    </div>
+        <dt>
+            @Html.DisplayNameFor(model => model.BookedEvent.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BookedEvent.Name)
+        </dd>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Date)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Date)
-    </div>
+        <dt>
+            @Html.DisplayNameFor(model => model.Date)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Date)
+        </dd>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.BookTime)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.BookTime)
-    </div>
+        <dt>
+            @Html.DisplayNameFor(model => model.BookedEvent.EventDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BookedEvent.EventDate)
+        </dd>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Email)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Email)
-    </div>
+        <dt>
+            @Html.DisplayNameFor(model => model.BookTime)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BookTime)
+        </dd>
 
-    <div class="display-label">
-         @Html.DisplayNameFor(model => model.Status)
-    </div>
-    <div class="display-field">
-        @Html.DisplayFor(model => model.Status)
-    </div>
-</fieldset>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id=Model.Bookingid }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+        <dt>
+            @Html.DisplayNameFor(model => model.BookedEvent.Description)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.BookedEvent.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Email)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Email)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-actions no-color">
+            @Html.ActionLink("Edit", "Edit", new { id = Model.Bookingid }) |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

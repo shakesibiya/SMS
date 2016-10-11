@@ -1,57 +1,58 @@
 ﻿@model SchoolManagementSystem.Domain.Entities.Booking
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "Book";
     Layout = "~/Views/Student/StudentLayout.cshtml";
 }
 
-<h2>Create</h2>
+<h2>Make Booking</h2>
 
-@using (Html.BeginForm()) {
-    @Html.AntiForgeryToken()
-    @Html.ValidationSummary(true)
+<div class="col-lg-5">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
 
-    <fieldset>
-        <legend>Booking</legend>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.UserName)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.UserName)
-            @Html.ValidationMessageFor(model => model.UserName)
+        <div class="row form-group">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.UserName)
+            </div>
+            <input class="form-control" type="text" name="UserName" required value="">
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Date)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Date)
-            @Html.ValidationMessageFor(model => model.Date)
-        </div>
-
-        <div class="editor-label">
-            @Html.LabelFor(model => model.BookTime)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.BookTime)
-            @Html.ValidationMessageFor(model => model.BookTime)
+        <div class="row form-group">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Date)
+            </div>
+            <div class="editor-field">
+                <input class="form-control" type="Date" name="Date" required value="">
+                @Html.ValidationMessageFor(model => model.Date)
+            </div>
         </div>
 
-        <div class="editor-label">
-            @Html.LabelFor(model => model.Email)
-        </div>
-        <div class="editor-field">
-            @Html.EditorFor(model => model.Email)
-            @Html.ValidationMessageFor(model => model.Email)
+        <div class="row form-group">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.BookTime)
+            </div>
+            <div class="editor-field">
+                <input class="form-control" type="time" name="BookTime" required value="">
+                @Html.ValidationMessageFor(model => model.BookTime)
+            </div>
         </div>
 
-        <p>
-            <input type="submit" value="Create" />
-        </p>
-    </fieldset>
-}
+        <div class="row form-group">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Email)
+            </div>
+            <input class="form-control" type="email" name="Email" required value="">
+        </div>
 
-<div>
-    @Html.ActionLink("Back to List", "Index")
+        <div>
+            <button class="btn btn-success" type="submit">Book</button>
+        </div>
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
 </div>

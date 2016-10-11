@@ -84,6 +84,9 @@ namespace SchoolManagementSystem.Controllers
         
         public ActionResult Edit(int id)
         {
+            var redirector = CheckUserRights();
+            if (redirector != null) return redirector;
+
             Booking booking = db.Bookings.Find(id);
 
             if (booking == null)
@@ -163,9 +166,9 @@ namespace SchoolManagementSystem.Controllers
         private ActionResult CheckUserRights()
         {
             var currUser = (UserModel)System.Web.HttpContext.Current.Session["user"];
-            if (currUser == null || currUser.Role != "Secretary" && currUser.Role != "Student")
+            if (currUser == null || currUser.Role != "Secretary")
             {
-                return RedirectToAction("Login", "Account");
+                return RedirectToAction("MyBookings", "Booking");
             }
 
             return null;
