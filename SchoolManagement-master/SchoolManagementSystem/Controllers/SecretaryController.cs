@@ -341,6 +341,25 @@ namespace SchoolManagementSystem.Controllers
                     db.Students.Add(ct);
                     db.Applications.Remove(c);
                     db.SaveChanges();
+
+                    Sms sms = new Sms();
+                    Student stud = new Student();
+                    // var sms = new Smscan();
+                    HttpCookie myCookie = new HttpCookie("MyCookie");
+                    myCookie = Request.Cookies["MyCookie"];
+                    
+                    int Id = Convert.ToInt16(myCookie);
+                    string feedback = "";
+                    stud.PIN = "2017".Count().ToString();
+                    try
+                    {
+                        sms.Send_SMS(stud.PhoneNumber.ToString(), "Hi " + stud.FirstName + " Welcome to Exemption Matric Centre, you registered as a " + stud.FirstName +"."+ " Use " + stud.PIN + " to login and password " + "2017.");
+                    }
+                    catch(Exception e)
+                    {
+                        feedback += e.Message;
+                    }
+
                     return RedirectToAction("Index");
                 }
                 return RedirectToAction("Index");
