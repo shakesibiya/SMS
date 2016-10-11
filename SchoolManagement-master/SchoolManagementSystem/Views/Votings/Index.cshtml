@@ -78,10 +78,9 @@
             @Html.DisplayFor(modelItem => item.CandidateWinId)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.VotingId }) |
             @Html.ActionLink("Details", "Details", new { id=item.VotingId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.VotingId })|
-            @Html.ActionLink("AddCandidate","AddCandidate", new { id = item.VotingId})
+            @Html.ActionLink("AddCandidate","AddCandidate", new { id = item.VotingId})|
+            @Html.ActionLink("Vote","Vote", new { id = item.VotingId})
         </td>
     </tr>
 }

@@ -32,7 +32,7 @@ namespace SchoolManagementSystem.Controllers
 
             };
 
-            return RedirectToAction("Info");
+            return View(view);
         }
         public ActionResult MyVotings()
         {

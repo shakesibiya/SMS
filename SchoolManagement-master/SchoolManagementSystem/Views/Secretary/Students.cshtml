@@ -20,7 +20,6 @@
                         <th>PIN</th>
                         <th>FirstName</th>
                         <th>LastName</th>
-                        <th>Address</th>
                         <th>Class</th>
                         <th>Mobile</th>
                         <th>Phone</th>
@@ -35,6 +34,7 @@
                         <th>Postal Code</th>
                         <th>Deregister</th>
                         <th>Update</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
@@ -74,7 +74,9 @@
                             <td>
                                 @Html.ActionLink("Update", "UpdateStudent", new { id = student.Student.StudentID }, new { @class = "btn btn-warning btn-sm" })
                             </td>
-
+                            <td>
+                                @Html.ActionLink("Avatar", "UploadAvatar","Avatar", new { id = student.Student.StudentID }, new { @class = "btn btn-warning btn-sm" })
+                            </td>
                         </tr>
                     }
                 </tbody>

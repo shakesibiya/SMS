@@ -35,7 +35,6 @@ namespace SchoolManagementSystem.Controllers
 
             return View(model);
         }
-
         public ActionResult Overview()
         {
             var redirector = CheckUserRights();
@@ -98,7 +97,7 @@ namespace SchoolManagementSystem.Controllers
 
             var className = repository.Classes.FirstOrDefault(x => x.Id == details.Class_Id);
 
-            details.Avats = repository.Avatars.Where(x => x.StudentID == details.StudentID).Single();
+            details.Avats = repository.Avatars.Where(x => x.StudentID == details.StudentID).FirstOrDefault();
 
             if (className != null)
             {
@@ -133,6 +132,10 @@ namespace SchoolManagementSystem.Controllers
             }
 
             return null;
+        }
+        public ActionResult SignalRChat()
+        {
+            return View();
         }
     }
 }
