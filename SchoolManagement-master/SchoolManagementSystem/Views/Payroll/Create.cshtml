@@ -1,0 +1,51 @@
+﻿@model SchoolManagementSystem.Domain.Entities.Payroll
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Secretary/SecretaryLayout.cshtml";
+}
+
+<h2>Make Payment</h2>
+
+<div class="col-lg-5">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <div class="row form-group">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.amount)
+            </div>
+            <input class="form-control" type="text" name="amount" required value="">
+        </div>
+
+        <div class="row form-group">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.paymentDate)
+            </div>
+            <div class="editor-field">
+                <input class="form-control" type="Date" name="paymentDate" required value="">
+                @Html.ValidationMessageFor(model => model.paymentDate)
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.Teacher.PIN, "FirstName")
+            </div>
+            <div class="form-control">
+                @Html.DropDownList("PIN", String.Empty)
+                @Html.ValidationMessageFor(model => model.Teacher)
+            </div>
+        </div>
+        
+        <div>
+            <button class="btn btn-success" type="submit">Save</button>
+        </div>
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

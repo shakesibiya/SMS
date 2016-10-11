@@ -762,6 +762,11 @@
     <Content Include="Views\Booking\Edit.cshtml" />
     <Content Include="Views\Booking\Delete.cshtml" />
     <Content Include="Views\Payroll\Index.cshtml" />
+    <Content Include="Views\Payroll\Details.cshtml" />
+    <Content Include="Views\Payroll\MyPayrollDetails.cshtml" />
+    <Content Include="Views\Payroll\MyPayroll.cshtml" />
+    <Content Include="Views\Payroll\Create.cshtml" />
+    <Content Include="Views\Payroll\Edit.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

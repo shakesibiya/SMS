@@ -1,102 +1,138 @@
 ﻿using SchoolManagementSystem.Domain;
 using SchoolManagementSystem.Domain.Entities;
 using SchoolManagementSystem.Models;
-using System;
-using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
-using System.Web;
 using System.Web.Mvc;
 
 namespace SchoolManagementSystem.Controllers
 {
     public class PayrollController : Controller
-
     {
-
-
         private DbSchoolRepository repository = new DbSchoolRepository();
         private DbSchoolContext db = new DbSchoolContext();
-
-
+        
         public ActionResult Index()
         {
-            var salaries = repository.Payrolls.ToList();
-            // List<PayrollViewModel> model = new List<PayrollViewModel>();
-
-            return View();
+            var currUser = (UserModel)System.Web.HttpContext.Current.Session["user"];
+            var salaries = repository.Payrolls;
+            if (currUser.Role != "Secretary")
+            {
+                return RedirectToAction("MyPayroll", "Payroll");
+            }
+            return View(salaries.ToList());
         }
 
-
-
-        public ActionResult Details(int id)
+        public ActionResult MyPayroll()
         {
-            return View();
+            var redirector = CheckUserRights();
+            if (redirector != null) return redirector;
+
+            var currUser = (UserModel)System.Web.HttpContext.Current.Session["user"];
+            var payroll = repository.Payrolls.Where(p => p.Teacher.PIN == currUser.Login);
+
+            if (currUser.Role != "Teacher")
+            {
+                return RedirectToAction("Index", "Home");
+            }
+
+            return View(payroll.ToList());
         }
 
+        public ActionResult Details(int id = 0)
+        {
+            Payroll payroll = db.Payrolls.Find(id);
+            if (payroll == null)
+            {
+                return HttpNotFound();
+            }
+            return View(payroll);
+        }
 
+        //For teachers
+        public ActionResult MyPayrollDetails(int id = 0)
+        {
+            Payroll payroll = db.Payrolls.Find(id);
+            if (payroll == null)
+            {
+                return HttpNotFound();
+            }
+            return View(payroll);
+        }
 
         public ActionResult Create()
         {
+            ViewBag.PIN = new SelectList(db.Teachers, "PIN", "FirstName");
             return View();
         }
-
-
+        
         [HttpPost]
-        public ActionResult Create(Payroll p )
+        public ActionResult Create(Payroll payroll)
         {
-            var pay = repository.Payrolls.FirstOrDefault(x => x.Teacher.FirstName == p.Teacher.FirstName);
-            
-
-            return View();
-
+            ViewBag.PIN = new SelectList(db.Teachers, "PIN", "FirstName", payroll.Teacher.PIN);
+            if (ModelState.IsValid)
+            {
+                db.Payrolls.Add(payroll);
+                db.SaveChanges();
+                return RedirectToAction("Index");
+            }
+            return View(payroll);
         }
-
-
 
         public ActionResult Edit(int id)
         {
-            return View();
+            ViewBag.PIN = new SelectList(db.Teachers, "PIN", "FirstName");
+            Payroll payroll = db.Payrolls.Find(id);
+
+            if (payroll == null)
+            {
+                return HttpNotFound();
+            }
+            return View(payroll);
         }
-
-
 
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Payroll payroll)
         {
-            try
+            ViewBag.PIN = new SelectList(db.Teachers, "PIN", "FirstName", payroll.Teacher.PIN);
+            if (ModelState.IsValid)
             {
-
-
+                db.Entry(payroll).State = EntityState.Modified;
+                db.SaveChanges();
                 return RedirectToAction("Index");
             }
-            catch
-            {
-                return View();
-            }
+            return View(payroll);
         }
-
-
 
         public ActionResult Delete(int id)
         {
-            return View();
+            Payroll payroll = db.Payrolls.Find(id);
+
+            if (payroll == null)
+            {
+                return HttpNotFound();
+            }
+            return View(payroll);
         }
-
-
-
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
+        
+        [HttpPost, ActionName("Delete")]
+        public ActionResult DeleteConfirmed(int id)
         {
-            try
-            {
+            Payroll payroll = db.Payrolls.Find(id);
+            db.Payrolls.Remove(payroll);
+            db.SaveChanges();
+            return RedirectToAction("Index");
+        }
+        private ActionResult CheckUserRights()
+        {
+            var currUser = (UserModel)System.Web.HttpContext.Current.Session["user"];
 
-
-                return RedirectToAction("Index");
-            }
-            catch
+            if (currUser == null || currUser.Role != "Secretary" && currUser.Role != "Teacher")
             {
-                return View();
+                return RedirectToAction("Login", "Account");
             }
+
+            return null;
         }
     }
 }

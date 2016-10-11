@@ -1,8 +1,8 @@
 ﻿@model IEnumerable<SchoolManagementSystem.Domain.Entities.Payroll>
 
 @{
-    ViewBag.Title = "Pay Rolls";
-    Layout = "~/Views/Secretary/SecretaryLayout.cshtml";
+    ViewBag.Title = "My Payroll";
+    Layout = "~/Views/Teacher/TeacherLayout.cshtml";
 }
 
 <div class="row">
@@ -10,9 +10,6 @@
         <h1 class="page-header">Pay Rolls:</h1>
     </div>
     <!-- /.col-lg-12 -->
-    <p>
-        @Html.ActionLink("Create New", "Create")
-    </p>
 </div>
 
 <div class="row">
@@ -40,7 +37,7 @@
                             <td>@Html.DisplayFor(modelItem => item.Teacher.LastName)</td>
                             <td>@Html.DisplayFor(modelItem => item.Teacher.MobilePhoneNumber)</td>
                             <td>
-                                @Html.ActionLink("Edit", "Edit", new { id = item.payrollId }) |
+                                @*@Html.ActionLink("Edit", "Edit", new { id = item.payrollId }) |*@
                                 @Html.ActionLink("Details", "Details", new { id = item.payrollId })
                                 @*@Html.ActionLink("Delete", "Delete", new { id = item.payrollId })*@
                             </td>
