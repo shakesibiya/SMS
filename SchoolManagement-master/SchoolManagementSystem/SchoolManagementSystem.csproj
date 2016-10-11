@@ -161,6 +161,7 @@
     <Compile Include="Models\AppointmentByStudentModel.cs" />
     <Compile Include="Models\AppointmentModel.cs" />
     <Compile Include="Models\AppointmentResponseModel.cs" />
+    <Compile Include="Models\BookingViewModel.cs" />
     <Compile Include="Models\DetailsVotingView.cs" />
     <Compile Include="Models\EventViewModel.cs" />
     <Compile Include="Models\IndexModelView.cs" />
