@@ -16,10 +16,10 @@
             @Html.DisplayNameFor(model => model.UserName)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.Date)
+            @Html.DisplayNameFor(model => model.BookedEvent.EventDate)
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.BookTime)
+            @Html.DisplayNameFor(model => model.BookedEvent.Description)
         </th>
         <th>
             @Html.DisplayNameFor(model => model.Email)
@@ -36,10 +36,10 @@
             @Html.DisplayFor(modelItem => item.UserName)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.Date)
+            @Html.DisplayFor(modelItem => item.BookedEvent.EventDate)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.BookTime)
+            @Html.DisplayFor(modelItem => item.BookedEvent.Description)
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.Email)

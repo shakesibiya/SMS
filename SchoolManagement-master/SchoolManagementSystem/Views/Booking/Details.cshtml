@@ -11,35 +11,42 @@
     <legend>Booking</legend>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.UserName)
+        @Html.DisplayNameFor(model => model.UserName)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.UserName)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Date)
+        @Html.DisplayNameFor(model => model.BookedEvent.Name)
     </div>
     <div class="display-field">
-        @Html.DisplayFor(model => model.Date)
+        @Html.DisplayFor(model => model.BookedEvent.Name)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.BookTime)
+        @Html.DisplayNameFor(model => model.BookedEvent.EventDate)
+    </div>
+    <div class="display-field">
+        @Html.DisplayFor(model => model.BookedEvent.EventDate)
+    </div>
+
+    <div class="display-label">
+        @Html.DisplayNameFor(model => model.BookTime)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.BookTime)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Email)
+        @Html.DisplayNameFor(model => model.Email)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Email)
     </div>
 
     <div class="display-label">
-         @Html.DisplayNameFor(model => model.Status)
+        @Html.DisplayNameFor(model => model.Status)
     </div>
     <div class="display-field">
         @Html.DisplayFor(model => model.Status)
