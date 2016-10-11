@@ -15,7 +15,7 @@ namespace SchoolManagementSystem.Domain.Entities
         public DateTime BookTime { get; set; }
         public string Email { get; set; }
         public string Status { get; set; }
-        
+        //foreign Key
         public virtual Event BookedEvent { get; set; }
         public virtual Student BookedStudent { get; set; }
     }
