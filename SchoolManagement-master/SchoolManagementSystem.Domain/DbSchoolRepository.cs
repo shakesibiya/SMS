@@ -63,6 +63,11 @@ namespace SchoolManagementSystem.Domain
             get { return context.Appointment; }
         }
 
+        public IEnumerable<Payment> Payments
+        {
+            get { return context.Payments; }
+        }
+
         public IEnumerable<Booking> Bookings
         {
             get { return context.Bookings; }
@@ -72,6 +77,12 @@ namespace SchoolManagementSystem.Domain
         {
             get { return context.Votings; }
         }
+
+        public IEnumerable<Payroll> Payrolls
+        {
+            get { return context.Payrolls; }
+        }
+
         public int AddEvent (Event item)
         {
             context.Event.Add(item);
@@ -92,6 +103,12 @@ namespace SchoolManagementSystem.Domain
         public int AddStudent(Student item)
         {
             context.Students.Add(item);
+            return context.SaveChanges();
+        }
+
+        public int AddPayment(Payment item)
+        {
+            context.Payments.Add(item);
             return context.SaveChanges();
         }
 
@@ -147,6 +164,12 @@ namespace SchoolManagementSystem.Domain
         public int AddAppointment(Appointment item)
         {
             context.Appointment.Add(item);
+            return context.SaveChanges();
+        }
+
+        public int AddPayroll(Payroll item)
+        {
+            context.Payrolls.Add(item);
             return context.SaveChanges();
         }
 

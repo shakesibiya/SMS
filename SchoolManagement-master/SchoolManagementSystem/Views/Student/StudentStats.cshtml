@@ -1,0 +1,22 @@
+﻿@{
+    ViewBag.Title = "StudentStats";
+    Layout = "~/Views/Secretary/SecretaryLayout.cshtml";
+}
+
+<h2>Student Stats</h2>
+
+
+<td style="width:60%;height:60%;">
+    <div class="row">
+        <img src="@Url.Action("Graph1","Student")" alt="SimpleChart" />
+
+        <asp:Content ID="Content1" ContentPlaceHolderID="TitleContent" runat="server">
+
+        </asp:Content>
+
+        <asp:Content ID="Content2" ContentPlaceHolderID="MainContent" runat="server">
+
+
+        </asp:Content>
+    </div>
+</td>

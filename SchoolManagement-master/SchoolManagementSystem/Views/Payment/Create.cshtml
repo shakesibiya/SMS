@@ -1,0 +1,61 @@
+﻿@model SchoolManagementSystem.Domain.Entities.Payment
+
+@{
+    ViewBag.Title = "Create";
+    Layout = "~/Views/Secretary/SecretaryLayout.cshtml";
+}
+
+<h2>Make Payment</h2>
+
+<div class="col-lg-5">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true)
+
+        <div class="row form-group">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Value)
+            </div>
+            <input class="form-control" type="text" name="Value" required value="">
+        </div>
+
+        <div class="row form-group">
+            <div class="editor-label">
+                @Html.LabelFor(model => model.Date)
+            </div>
+            <div class="editor-field">
+                <input class="form-control" type="Date" name="Date" required value="">
+                @Html.ValidationMessageFor(model => model.Date)
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.Discipline_Id, "Subject")
+            </div>
+            <div class="form-control">
+                @Html.DropDownList("SubjectId", String.Empty)
+                @Html.ValidationMessageFor(model => model.Discipline_Id)
+            </div>
+        </div>
+
+        <div class="row form-group">
+            <div class="control-label">
+                @Html.LabelFor(model => model.StudentID, "PIN")
+            </div>
+            <div class="form-control">
+                @Html.DropDownList("StudentId", String.Empty)
+                @Html.ValidationMessageFor(model => model.StudentID)
+            </div>
+        </div>
+
+        <div>
+            <button class="btn btn-success" type="submit">Save</button>
+        </div>
+
+        <div>
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

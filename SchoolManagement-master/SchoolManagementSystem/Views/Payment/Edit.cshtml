@@ -1,0 +1,67 @@
+﻿@model SchoolManagementSystem.Domain.Entities.Payment
+
+@{
+    ViewBag.Title = "Edit Payment";
+    Layout = "~/Views/Secretary/SecretaryLayout.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.AntiForgeryToken()
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Payment</legend>
+
+        @Html.HiddenFor(model => model.Id)
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Value)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Value)
+            @Html.ValidationMessageFor(model => model.Value)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Type)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Type)
+            @Html.ValidationMessageFor(model => model.Type)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.Date)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.Date)
+            @Html.ValidationMessageFor(model => model.Date)
+        </div>
+
+        <div class="control-label">
+            @Html.LabelFor(model => model.Discipline_Id, "Subject")
+        </div>
+        <div class="controls">
+            @Html.DropDownList("SubjectId", String.Empty)
+            @Html.ValidationMessageFor(model => model.Discipline_Id)
+        </div>
+
+        <div class="control-label">
+            @Html.LabelFor(model => model.StudentID, "PIN")
+        </div>
+        <div class="controls">
+            @Html.DropDownList("StudentId", String.Empty)
+            @Html.ValidationMessageFor(model => model.StudentID)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>

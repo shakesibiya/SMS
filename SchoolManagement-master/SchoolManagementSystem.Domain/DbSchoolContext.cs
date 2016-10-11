@@ -37,7 +37,9 @@ namespace SchoolManagementSystem.Domain
         public DbSet<votingDetail> votingDetail { get; set; }
         public DbSet<Avatar> Avatars { get; set; }
         public DbSet<Country> Countries { get; set; }
+        public DbSet<Payment> Payments { get; set; }
         public DbSet<Booking> Bookings { get; set; }
+        public DbSet<Payroll> Payrolls { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

@@ -4,6 +4,8 @@ using System.Web.Mvc;
 using SchoolManagementSystem.Domain;
 using SchoolManagementSystem.Domain.Entities;
 using SchoolManagementSystem.Models;
+using System.Web.Helpers;
+using System.Collections.Generic;
 
 namespace SchoolManagementSystem.Controllers
 {
