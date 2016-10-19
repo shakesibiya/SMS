@@ -7,6 +7,10 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.Web.Mail;
+using System.ComponentModel.DataAnnotations;
+using System.Net.Mail;
+using System.Text;
 
 namespace SchoolManagementSystem.Controllers
 {
@@ -48,8 +52,38 @@ namespace SchoolManagementSystem.Controllers
             return View();
         }
 
-        public ActionResult Contact()
+        public ActionResult Contact(Contact c)
         {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    System.Net.Mail.MailMessage msg = new System.Net.Mail.MailMessage();
+                    SmtpClient smtp = new SmtpClient();
+                    MailAddress from = new MailAddress(c.Email.ToString());
+                    StringBuilder sb = new StringBuilder();
+                    msg.To.Add("youremail@email.com");
+                    msg.Subject = "Contact Us";
+                    msg.IsBodyHtml = false;
+                    smtp.Host = "mfd.dut.ac.za";
+                    smtp.Port = 443;
+                    sb.Append("First name: " + c.FirstName);
+                    sb.Append(Environment.NewLine);
+                    sb.Append("Last name: " + c.LastName);
+                    sb.Append(Environment.NewLine);
+                    sb.Append("Email: " + c.Email);
+                    sb.Append(Environment.NewLine);
+                    sb.Append("Comments: " + c.Comment);
+                    msg.Body = sb.ToString();
+                    smtp.Send(msg);
+                    msg.Dispose();
+                    return View("Success");
+                }
+                catch (Exception)
+                {
+                    return View("Error");
+                }
+            }
             return View();
         }
 

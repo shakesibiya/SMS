@@ -1,5 +1,4 @@
-﻿using SchoolManagementSchool.Models;
-using SchoolManagementSystem.Domain;
+﻿using SchoolManagementSystem.Domain;
 using SchoolManagementSystem.Domain.Entities;
 using SchoolManagementSystem.Models;
 using System;

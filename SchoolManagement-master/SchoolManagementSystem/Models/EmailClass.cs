@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.Mail;
 using System.Web;
 
-namespace SchoolManagementSchool.Models
+namespace SchoolManagementSystem.Models
 {
     public class EmailClass
     {
