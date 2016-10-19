@@ -6,7 +6,7 @@ using Microsoft.AspNet.SignalR;
 using System.Threading.Tasks;
 using System.Collections.Concurrent;
 
-namespace SchoolManagementSystem.Models
+namespace SchoolManagementSystem.Hubs
 {
     public class ChatHub : Hub
     {
