@@ -1,0 +1,56 @@
+﻿@model SchoolManagementSystem.Domain.Entities.Payroll
+@{
+    ViewBag.Title = "PaymentDetails";
+    Layout = "~/Views/Teacher/TeacherLayout.cshtml";
+}
+
+<div>
+    <h4>Payroll Details</h4>
+    <hr />
+
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.amount)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.amount)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.paymentDate)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.paymentDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Teacher.FirstName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Teacher.FirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Teacher.LastName)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Teacher.LastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Teacher.MobilePhoneNumber)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Teacher.MobilePhoneNumber)
+        </dd>
+    </dl>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-actions no-color">
+            @Html.ActionLink("Edit", "Edit", new { id = Model.payrollId }) |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>
