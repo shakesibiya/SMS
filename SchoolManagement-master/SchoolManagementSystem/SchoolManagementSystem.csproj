@@ -198,6 +198,7 @@
     <Compile Include="Models\AppointmentByStudentModel.cs" />
     <Compile Include="Models\AppointmentModel.cs" />
     <Compile Include="Models\AppointmentResponseModel.cs" />
+    <Compile Include="Models\BookingViewModel.cs" />
     <Compile Include="Models\ChatHub.cs" />
     <Compile Include="Models\DetailsVotingView.cs" />
     <Compile Include="Models\EmailClass.cs" />
@@ -855,6 +856,7 @@
     <Content Include="Views\Student\_ChatRoomLayout.cshtml" />
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Subjects.cshtml" />
+    <Content Include="Views\Payroll\PaymentDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
