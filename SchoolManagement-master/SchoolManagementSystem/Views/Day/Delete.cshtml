@@ -1,0 +1,64 @@
+﻿@model  SchoolManagementSystem.Domain.Entities.Day
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Day</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Copmus.compusnam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Copmus.compusnam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rooms.roomname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rooms.roomname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Subject.subjects)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Subject.subjects)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.days)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.days)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.time)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

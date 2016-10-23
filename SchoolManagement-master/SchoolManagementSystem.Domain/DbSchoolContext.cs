@@ -40,6 +40,16 @@ namespace SchoolManagementSystem.Domain
         public DbSet<Payment> Payments { get; set; }
         public DbSet<Booking> Bookings { get; set; }
         public DbSet<Payroll> Payrolls { get; set; }
+        public DbSet<Quiz> Quizzes { get; set; }
+        public DbSet<Question> Questions { get; set; }
+        public DbSet<Answer> Answers { get; set; }
+        public DbSet<QuizAttempt> QuizAttempts { get; set; }
+
+        public DbSet<Day> Days { get; set; }
+        public DbSet<Subject> Subjects { get; set; }
+        public DbSet<Compus> Compus { get; set; }
+        public DbSet<timetable> timetables { get; set; }
+        public DbSet<room> rooms { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

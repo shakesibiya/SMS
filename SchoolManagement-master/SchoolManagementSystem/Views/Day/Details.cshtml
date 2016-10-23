@@ -1,0 +1,58 @@
+﻿@model  SchoolManagementSystem.Domain.Entities.Day
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Day</h4>
+	<hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Copmus.compusnam)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Copmus.compusnam)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.rooms.roomname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.rooms.roomname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Subject.subjects)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Subject.subjects)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.days)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.days)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.time)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.time)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.day_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

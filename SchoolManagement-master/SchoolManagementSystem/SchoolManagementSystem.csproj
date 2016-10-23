@@ -171,6 +171,8 @@
     <Compile Include="Controllers\AppointmentController.cs" />
     <Compile Include="Controllers\AvatarController.cs" />
     <Compile Include="Controllers\BookingController.cs" />
+    <Compile Include="Controllers\CompusController.cs" />
+    <Compile Include="Controllers\DayController.cs" />
     <Compile Include="Controllers\DeregisterController.cs" />
     <Compile Include="Controllers\DirectorController.cs" />
     <Compile Include="Controllers\EventController.cs" />
@@ -182,11 +184,15 @@
     <Compile Include="Controllers\PayPalController.cs" />
     <Compile Include="Controllers\PayrollController.cs" />
     <Compile Include="Controllers\PostPicturesController.cs" />
+    <Compile Include="Controllers\QuizController.cs" />
+    <Compile Include="Controllers\roomController.cs" />
     <Compile Include="Controllers\SecretaryController.cs" />
     <Compile Include="Controllers\SmsController.cs" />
     <Compile Include="Controllers\StatesController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
+    <Compile Include="Controllers\subjectController.cs" />
     <Compile Include="Controllers\TeacherController.cs" />
+    <Compile Include="Controllers\timetableController.cs" />
     <Compile Include="Controllers\VotingsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -210,6 +216,7 @@
     <Compile Include="Models\PaypalSetUp\Logger.cs" />
     <Compile Include="Models\PayrollViewModel.cs" />
     <Compile Include="Models\PostView.cs" />
+    <Compile Include="Models\QuizViewModel.cs" />
     <Compile Include="Models\SecretaryAddTeacherViewModel.cs" />
     <Compile Include="Models\SecretarySearchModel.cs" />
     <Compile Include="Models\Sms.cs" />
@@ -229,6 +236,10 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Content Include="Content\bootstrap-theme.css" />
+    <Content Include="Content\bootstrap-theme.min.css" />
+    <Content Include="Content\bootstrap.css" />
+    <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\bower_components\bootstrap-social\bootstrap-social.css" />
     <Content Include="Content\bower_components\bootstrap\dist\css\bootstrap-theme.css" />
     <Content Include="Content\bower_components\bootstrap\dist\css\bootstrap-theme.min.css" />
@@ -744,6 +755,7 @@
     <Content Include="Content\themes\base\tabs.css" />
     <Content Include="Content\themes\base\theme.css" />
     <Content Include="Content\themes\base\tooltip.css" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="imgRepo\about-company.jpg" />
     <Content Include="imgRepo\Bg.jpg" />
@@ -774,7 +786,21 @@
     <Content Include="imgRepo\subjects.jpg" />
     <Content Include="imgRepo\user.png" />
     <Content Include="imgRepo\walk.gif" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="Content\bootstrap.min.css.map" />
+    <Content Include="Content\bootstrap.css.map" />
+    <Content Include="Content\bootstrap-theme.min.css.map" />
+    <Content Include="Content\bootstrap-theme.css.map" />
     <None Include="Scripts\jquery-1.12.4.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-1.12.4.js" />
     <Content Include="Scripts\jquery-1.12.4.min.js" />
     <Content Include="Scripts\jquery-ui-1.12.0.js" />
@@ -785,6 +811,20 @@
     <Content Include="Scripts\jquery.signalR-1.0.1.min.js" />
     <Content Include="Scripts\jquery.signalR-2.2.1.js" />
     <Content Include="Scripts\jquery.signalR-2.2.1.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Quiz\attempt-quiz.js" />
+    <Content Include="Scripts\Quiz\create-quiz.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.js" />
+    <Content Include="Scripts\respond.matchmedia.addListener.min.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <None Include="Scripts\_references.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -858,6 +898,38 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Subjects.cshtml" />
     <Content Include="Views\Payroll\PaymentDetails.cshtml" />
+    <Content Include="Views\Quiz\Attempt.cshtml" />
+    <Content Include="Views\Quiz\Create.cshtml" />
+    <Content Include="Views\Quiz\Details.cshtml" />
+    <Content Include="Views\Quiz\Index.cshtml" />
+    <Content Include="Views\Quiz\Results.cshtml" />
+    <Content Include="Views\Compus\Create.cshtml" />
+    <Content Include="Views\Compus\Delete.cshtml" />
+    <Content Include="Views\Compus\Details.cshtml" />
+    <Content Include="Views\Compus\Edit.cshtml" />
+    <Content Include="Views\Compus\Index.cshtml" />
+    <Content Include="Views\Day\Create.cshtml" />
+    <Content Include="Views\Day\Delete.cshtml" />
+    <Content Include="Views\Day\Details.cshtml" />
+    <Content Include="Views\Day\Edit.cshtml" />
+    <Content Include="Views\Day\Index.cshtml" />
+    <Content Include="Views\Day\recod.cshtml" />
+    <Content Include="Views\Day\search.cshtml" />
+    <Content Include="Views\Room\Create.cshtml" />
+    <Content Include="Views\Room\Delete.cshtml" />
+    <Content Include="Views\Room\Details.cshtml" />
+    <Content Include="Views\Room\Edit.cshtml" />
+    <Content Include="Views\Room\Index.cshtml" />
+    <Content Include="Views\Subject\Create.cshtml" />
+    <Content Include="Views\Subject\Delete.cshtml" />
+    <Content Include="Views\Subject\Details.cshtml" />
+    <Content Include="Views\Subject\Edit.cshtml" />
+    <Content Include="Views\Subject\Index.cshtml" />
+    <Content Include="Views\timetable\Create.cshtml" />
+    <Content Include="Views\timetable\Delete.cshtml" />
+    <Content Include="Views\timetable\Details.cshtml" />
+    <Content Include="Views\timetable\Edit.cshtml" />
+    <Content Include="Views\timetable\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
