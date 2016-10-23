@@ -40,7 +40,10 @@ namespace SchoolManagementSystem.Domain
         public DbSet<Payment> Payments { get; set; }
         public DbSet<Booking> Bookings { get; set; }
         public DbSet<Payroll> Payrolls { get; set; }
-
+        public DbSet<Quiz> Quizzes { get; set; }
+        public DbSet<Question> Questions { get; set; }
+        public DbSet<Answer> Answers { get; set; }
+        public DbSet<QuizAttempt> QuizAttempts { get; set; }
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();

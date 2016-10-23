@@ -70,6 +70,7 @@
     <Compile Include="Entities\Payroll.cs" />
     <Compile Include="Entities\Post.cs" />
     <Compile Include="Entities\PostPictures.cs" />
+    <Compile Include="Entities\QuizModels.cs" />
     <Compile Include="Entities\SMS.cs" />
     <Compile Include="Entities\SmsModel.cs" />
     <Compile Include="Entities\State.cs" />

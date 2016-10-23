@@ -182,6 +182,7 @@
     <Compile Include="Controllers\PayPalController.cs" />
     <Compile Include="Controllers\PayrollController.cs" />
     <Compile Include="Controllers\PostPicturesController.cs" />
+    <Compile Include="Controllers\QuizController.cs" />
     <Compile Include="Controllers\SecretaryController.cs" />
     <Compile Include="Controllers\SmsController.cs" />
     <Compile Include="Controllers\StatesController.cs" />
@@ -209,6 +210,7 @@
     <Compile Include="Models\PaypalSetUp\Logger.cs" />
     <Compile Include="Models\PayrollViewModel.cs" />
     <Compile Include="Models\PostView.cs" />
+    <Compile Include="Models\QuizViewModel.cs" />
     <Compile Include="Models\SecretaryAddTeacherViewModel.cs" />
     <Compile Include="Models\SecretarySearchModel.cs" />
     <Compile Include="Models\Sms.cs" />
@@ -773,7 +775,13 @@
     <Content Include="imgRepo\subjects.jpg" />
     <Content Include="imgRepo\user.png" />
     <Content Include="imgRepo\walk.gif" />
+    <Content Include="Scripts\jquery-1.10.2.min.map" />
     <None Include="Scripts\jquery-1.12.4.intellisense.js" />
+    <Content Include="Scripts\bootstrap.js" />
+    <Content Include="Scripts\bootstrap.min.js" />
+    <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\jquery-1.10.2.js" />
+    <Content Include="Scripts\jquery-1.10.2.min.js" />
     <Content Include="Scripts\jquery-1.12.4.js" />
     <Content Include="Scripts\jquery-1.12.4.min.js" />
     <Content Include="Scripts\jquery-ui-1.12.0.js" />
@@ -784,6 +792,17 @@
     <Content Include="Scripts\jquery.signalR-1.0.1.min.js" />
     <Content Include="Scripts\jquery.signalR-2.2.1.js" />
     <Content Include="Scripts\jquery.signalR-2.2.1.min.js" />
+    <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.validate.js" />
+    <Content Include="Scripts\jquery.validate.min.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.js" />
+    <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\modernizr-2.6.2.js" />
+    <Content Include="Scripts\Quiz\attempt-quiz.js" />
+    <Content Include="Scripts\Quiz\create-quiz.js" />
+    <Content Include="Scripts\respond.js" />
+    <Content Include="Scripts\respond.min.js" />
+    <None Include="Scripts\_references.js" />
     <Content Include="Web.config">
       <SubType>Designer</SubType>
     </Content>
@@ -857,6 +876,11 @@
     <Content Include="Views\Home\Contact.cshtml" />
     <Content Include="Views\Home\Subjects.cshtml" />
     <Content Include="Views\Payroll\PaymentDetails.cshtml" />
+    <Content Include="Views\Quiz\Attempt.cshtml" />
+    <Content Include="Views\Quiz\Create.cshtml" />
+    <Content Include="Views\Quiz\Details.cshtml" />
+    <Content Include="Views\Quiz\Index.cshtml" />
+    <Content Include="Views\Quiz\Results.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
