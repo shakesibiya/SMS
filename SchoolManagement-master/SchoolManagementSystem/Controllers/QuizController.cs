@@ -8,7 +8,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 
-namespace ShaleCo.OnlineQuiz.Web.Controllers
+namespace SchoolManagementSystem.Controllers
 {
     
     public class QuizController : Controller

@@ -1,13 +1,12 @@
-﻿@using ShaleCo.OnlineQuiz.Web.Models
-@model ShaleCo.OnlineQuiz.Web.Models.QuizViewModel.ListViewModel
+﻿@using SchoolManagementSystem.Models
+@model SchoolManagementSystem.Models.QuizViewModel.ListViewModel
 @{
     ViewBag.Title = "List";
 }
 
 <h2>Quizzes</h2>
 
-@if(User.IsInRole(UserRoles.Student.ToString()))
-{ 
+
     <p>Below are the quizzes which are available for you.</p>
     <div class="row">
         <div class="col-lg-4">
@@ -24,9 +23,7 @@
             </div>
         </div>
     </div>
-}
-else
-{
+
     <p>Below are the quizzes which you have created.</p>
     <div class="row">
         <div class="col-lg-4">
