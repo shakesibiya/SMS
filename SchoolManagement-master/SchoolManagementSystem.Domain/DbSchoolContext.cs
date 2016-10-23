@@ -44,6 +44,13 @@ namespace SchoolManagementSystem.Domain
         public DbSet<Question> Questions { get; set; }
         public DbSet<Answer> Answers { get; set; }
         public DbSet<QuizAttempt> QuizAttempts { get; set; }
+
+        public DbSet<Day> Days { get; set; }
+        public DbSet<Subject> Subjects { get; set; }
+        public DbSet<Compus> Compus { get; set; }
+        public DbSet<timetable> timetables { get; set; }
+        public DbSet<room> rooms { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
