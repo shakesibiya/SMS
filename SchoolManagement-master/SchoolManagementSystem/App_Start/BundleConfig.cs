@@ -19,7 +19,12 @@ namespace SchoolManagementSystem
             bundles.Add(new ScriptBundle("~/bundles/modernizr").Include(
                         "~/Scripts/modernizr-*"));
 
+            bundles.Add(new ScriptBundle("~/bundles/bootstrap").Include(
+                     "~/Scripts/bootstrap.js",
+                     "~/Scripts/respond.js"));
+
             bundles.Add(new ScriptBundle("~/Content/css").Include(
+                "~/Content/bootstrap.css",
                       "~/Content/Site.js"));
 
             bundles.Add(new StyleBundle("~/Content/themes/base/css").Include(

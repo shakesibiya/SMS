@@ -56,6 +56,12 @@
     <link href="~/Content/animate.css" rel="stylesheet" />
     <script src="~/Scripts/jquery-ui.min.js"></script>
 
+    <script src="/Scripts/jquery-1.10.2.js"></script>
+
+    <script src="/Scripts/bootstrap.js"></script>
+    <script src="/Scripts/respond.js"></script>
+
+
 </head>
 
 <body>
@@ -99,7 +105,13 @@
             @RenderBody()
     </div>
     <!-- /#wrapper -->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @Scripts.Render("~/bundles/jqueryui")
 
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/modernizr")
+    @RenderSection("scripts", required: false)
 </body>
 
 </html>

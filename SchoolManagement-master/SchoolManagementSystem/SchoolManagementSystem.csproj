@@ -814,7 +814,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\Quiz\attempt-quiz.js" />
-    <Content Include="Scripts\Quiz\create-quiz.js" />
+    <Content Include="Scripts\create-quiz.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.js" />
     <Content Include="Scripts\respond.matchmedia.addListener.min.js" />

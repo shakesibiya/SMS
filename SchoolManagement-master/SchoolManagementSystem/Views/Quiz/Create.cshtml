@@ -2,7 +2,11 @@
 
 @{
     ViewBag.Title = "Create";
+    Layout = "~/Views/Student/StudentLayout.cshtml";
 }
+
+@*<script src="~/Scripts/Quiz/create-quiz.js"></script>*@
+
 <div class="row">
     <div class="page-header">
         <h4>Create Quiz</h4>
@@ -18,8 +22,31 @@
                         <label for="quizName" class="col-lg-2 control-label">Quiz Name</label>
                         <div class="col-lg-10">
                             <input type="text" class="form-control" id="quizName" placeholder="Quiz Name" />
+                       
+
+
+                         </div>
+                        <div class="row form-group">
+                            <div class="editor-label">
+                                @Html.LabelFor(model => model.QuizName)
+                           </div>
+                            <input class="form-control" type="text" name="UserName" required value="" id="quizName" placeholder="Quiz Name">
                         </div>
+
+
+
+
+
+
+
+
                     </div>
+
+
+
+
+
+
                 </fieldset>
             </form>
             <form class="form-horizontal">
@@ -67,5 +94,5 @@
     </div>
 </div>
 @section Scripts{
-    @Scripts.Render("~/Scripts/Quiz/create-quiz.js")
+    @Scripts.Render("~/Scripts/create-quiz.js")
 }
