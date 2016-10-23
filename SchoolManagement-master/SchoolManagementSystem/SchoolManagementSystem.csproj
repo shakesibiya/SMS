@@ -201,6 +201,7 @@
     <Compile Include="Models\AppointmentResponseModel.cs" />
     <Compile Include="Models\BookingViewModel.cs" />
     <Compile Include="Models\ChatHub.cs" />
+    <Compile Include="Models\Contact.cs" />
     <Compile Include="Models\DetailsVotingView.cs" />
     <Compile Include="Models\EmailClass.cs" />
     <Compile Include="Models\EventViewModel.cs" />

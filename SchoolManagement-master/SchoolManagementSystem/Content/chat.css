@@ -1,5 +1,13 @@
-﻿
-    #container {  
+﻿body
+{
+    background-color: aliceblue;
+    font-size: 1em;
+    font-family: 'Times New Roman', 'Informal Roman', Sans-Serif;
+    margin: 0;
+    padding: 0;
+    color: #696969;
+}
+#container {  
   width: 400px ;  
   margin-left: auto ;  
   margin-right: auto ;   

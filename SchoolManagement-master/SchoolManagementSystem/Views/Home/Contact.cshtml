@@ -1,6 +1,41 @@
-﻿<body>
-    <h2>Contact Us</h2>
+﻿@using SchoolManagementSystem.Models
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>MEC</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Content/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- MetisMenu CSS -->
+    <link href="~/Content/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+    <!-- Timeline CSS -->
+    <link href="~/Content/dist/css/timeline.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/Content/dist/css/sb-admin-2.css" rel="stylesheet">
+    <!-- Datepicker CSS -->
+    <link href="~/Content/dist/css/bootstrap-datepicker.css" rel="stylesheet">
+    <!-- Morris Charts CSS -->
+    <link href="~/Content/bower_components/morrisjs/morris.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="~/Content/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
 
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/App.js"></script>
+
+    <link href="~/Content/animate.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/jquery-ui.min.css" />
+    <script src="~/Scripts/jquery-ui.min.js"></script>
+</head>
+<h2>Contact Us</h2>
+
+<div class="col-md-6 wow fadeInLeft" data-wow-delay=".3s">
     <h3>Visit Us Here</h3>
     <address>
         <p>
@@ -13,11 +48,11 @@
         <p>Tel: 031-837-7252<br>Fax: 081-396-6772</p>
 
     </address>
-    
+
     <address>
         <p>Email Address: info@exemptionsa.co.za</p>
     </address>
-
+    </div>
 
     @*<section class="global-page-header">
             <div class="container">
@@ -43,7 +78,7 @@
     ==================================================
         Contact Section Start
     ================================================== -->
-    @*<section id="contact-section">
+    <section id="contact-section">
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
@@ -54,29 +89,32 @@
                         </p>
 
 
-                        @model SchoolManagementSystem.Models.EmailClass
+                        @model SchoolManagementSystem.Models.Contact
                         @using (Html.BeginForm())
                         {
                             <div class="form-horizontal">
                                 <div class="form-group">
-                                    @Html.LabelFor(m => m.From, new { @class = "col-md-2 control-label" })
+                                    @Html.LabelFor(m => m.FirstName, new { @class = "col-md-2 control-label" })
                                     <div class="col-md-10">
-                                        @Html.TextBoxFor(m => m.From, new { @class = "form-control MakeWidth" })
+                                        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control MakeWidth" })
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    @Html.LabelFor(m => m.Subject, new { @class = "col-md-2 control-label" })
+                                    @Html.LabelFor(m => m.LastName, new { @class = "col-md-2 control-label" })
                                     <div class="col-md-10">
-                                        @Html.TextBoxFor(m => m.Subject, new { @class = "form-control MakeWidth" })
+                                        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control MakeWidth" })
                                     </div>
                                 </div>
-
-
-
                                 <div class="form-group">
-                                    @Html.LabelFor(m => m.Body, new { @class = "col-md-2 control-label" })
+                                    @Html.LabelFor(m => m.Email, new { @class = "col-md-2 control-label" })
                                     <div class="col-md-10">
-                                        @Html.TextAreaFor(m => m.Body, new { @class = "form-control MakeWidth" })
+                                        @Html.TextAreaFor(m => m.Email, new { @class = "form-control MakeWidth" })
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    @Html.LabelFor(m => m.Comment, new { @class = "col-md-2 control-label" })
+                                    <div class="col-md-10">
+                                        @Html.TextAreaFor(m => m.Comment, new { @class = "form-control MakeWidth" })
                                     </div>
                                 </div>
 
@@ -111,7 +149,7 @@
                 </div>
             </div>
         </div>
-    </section>*@
+    </section>
     @*</div>*@
     @*<div class="row address-details">
         <div class="col-md-3">*@
@@ -141,7 +179,6 @@
                 </div>
             </div>
         </section>*@
-</body>
 
 
 
@@ -156,6 +193,3 @@
         Footer Section Start
     ================================================== -->
     <!-- /#footer -->
-
-
-

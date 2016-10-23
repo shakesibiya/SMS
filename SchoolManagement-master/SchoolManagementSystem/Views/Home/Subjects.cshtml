@@ -1,41 +1,55 @@
-﻿<body>
-    <section class="global-page-header">
-        <div class="container">
+﻿@using SchoolManagementSystem.Models
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>MEC</title>
+    <!-- Bootstrap Core CSS -->
+    <link href="~/Content/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- MetisMenu CSS -->
+    <link href="~/Content/bower_components/metisMenu/dist/metisMenu.min.css" rel="stylesheet">
+    <!-- Timeline CSS -->
+    <link href="~/Content/dist/css/timeline.css" rel="stylesheet">
+    <!-- Custom CSS -->
+    <link href="~/Content/dist/css/sb-admin-2.css" rel="stylesheet">
+    <!-- Datepicker CSS -->
+    <link href="~/Content/dist/css/bootstrap-datepicker.css" rel="stylesheet">
+    <!-- Morris Charts CSS -->
+    <link href="~/Content/bower_components/morrisjs/morris.css" rel="stylesheet">
+    <!-- Custom Fonts -->
+    <link href="~/Content/bower_components/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <script src="~/Scripts/angular.min.js"></script>
+    <script src="~/Scripts/App.js"></script>
+
+    <link href="~/Content/animate.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/Content/jquery-ui.min.css" />
+    <script src="~/Scripts/jquery-ui.min.js"></script>
+</head>
+<h2>Subjects</h2>
+
+<div class="site-header">
+    <div class="container">
+        <div class="main-header">
             <div class="row">
-                <div class="col-md-12">
-                    <div class="block">
-                        <h2>Subject</h2>
-                        @*<ol class="breadcrumb">
-                            <li>
-                                <a href="~/Home/Subject">
-                                    <i class="ion-ios-home"></i>
-                                    Home
-                                </a>
-                            </li>
-                            <li class="active">Subject</li>
-                        </ol>*@
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section><!--/#page-header-->
-    @*<title>Exemption Matric Centre | Subjects</title>*@
-    
-    <div class="site-header">
-        <div class="container">
-            <div class="main-header">
-                <div class="row">
-                    <div class="col-md-4 col-sm-6 col-xs-10">
-                        <div class="logo">
-                            @*<a href="index.html">
+                <div class="col-md-4 col-sm-6 col-xs-10">
+                    <div class="logo">
+                        @*<a href="index.html">
                                 <img src="images/logo.png" alt="Exemption Matric Centre" title="Exemption Matric Centre">
                             </a>*@
-                        </div> <!-- /.logo -->
-                    </div> <!-- /.col-md-4 -->
-                     <!-- /.col-md-8 -->
-                </div> <!-- /.row -->
-            </div> <!-- /.main-header -->
-            @*<div class="row">
+                    </div> <!-- /.logo -->
+                </div> <!-- /.col-md-4 -->
+                <!-- /.col-md-8 -->
+            </div> <!-- /.row -->
+        </div> <!-- /.main-header -->
+        @*<div class="row">
                 <div class="col-md-12 visible-sm visible-xs">
                     <div class="menu-responsive">
                         <ul>
@@ -49,94 +63,94 @@
                     </div> <!-- /.menu-responsive -->
                 </div> <!-- /.col-md-12 -->
             </div>*@ <!-- /.row -->
-        </div> <!-- /.container -->
-    </div> <!-- /.site-header -->
+    </div> <!-- /.container -->
+</div> <!-- /.site-header -->
 
-    <div class="page-top" id="templatemo_events">
-    </div> <!-- /.page-header -->
+<div class="page-top" id="templatemo_events">
+</div> <!-- /.page-header -->
 
-    <div class="middle-content">
-        <div class="container">
+<div class="middle-content">
+    <div class="container">
 
-            <div class="row">
-                <!-- first row --><!-- /.col-md-4 --><!-- /.col-md-4 --><!-- /.col-md-4 -->
+        <div class="row">
+            <!-- first row --><!-- /.col-md-4 --><!-- /.col-md-4 --><!-- /.col-md-4 -->
 
 
 
-            </div> <!-- /.row first -->
+        </div> <!-- /.row first -->
 
-            <div class="row">
-                <!-- second row -->
-                <div class="col-md-6">
-                    <!-- first column -->
-                    <div class="widget-item">
+        <div class="row">
+            <!-- second row -->
+            <div class="col-md-6">
+                <!-- first column -->
+                <div class="widget-item">
 
-                        <div class="sample-thumb"><img src="~/imgRepo/subjects.jpg" alt="company" title="company"></div>
-                        <!-- /.sample-thumb -->
+                    <div class="sample-thumb"><img src="~/imgRepo/subjects.jpg" alt="company" title="company"></div>
+                    <!-- /.sample-thumb -->
+                    <div>
+                        <p>EMC accepts only learners wanting to rewrite National  Curriculum Statement (NCS) subjects as well as CAPS.</p>
+                        <p>Prioritizing  Mathematics, Science and Accountancy, EMC offers the following subjects:</p>
+                        <p> </p>
+                        <table height="154" width="282">
+                            <tbody>
+                                <tr>
+                                    <td> </td>
+                                    <td>
+                                        <div>
+                                            <p><strong>Mathematics</strong></p>
+                                            <p><strong>Mathematical Literacy</strong></p>
+                                        </div>
+                                        <div>
+                                            <p><strong>Physical Science</strong></p>
+                                            <p><strong>Life Science</strong></p>
+                                            <p><strong>Agriculture</strong></p>
+                                        </div>
+                                        <div>
+                                            <p><strong>Accounting</strong></p>
+                                            <p><strong>Economics</strong></p>
+                                            <p><strong>Business Studies</strong></p>
+                                        </div>
+                                        <div>
+                                            <p><strong>English</strong></p>
+                                            <p><strong>Tourism</strong></p>
+                                            <p><strong>Geography</strong></p>
+                                            <p><strong>History</strong></p>
+                                        </div>
+                                    </td>
+                                    <td> </td>
+                                </tr>
+                            </tbody>
+                        </table>
                         <div>
-                            <p>EMC accepts only learners wanting to rewrite National  Curriculum Statement (NCS) subjects as well as CAPS.</p>
-                            <p>Prioritizing  Mathematics, Science and Accountancy, EMC offers the following subjects:</p>
-                            <p> </p>
-                            <table height="154" width="282">
-                                <tbody>
-                                    <tr>
-                                        <td> </td>
-                                        <td>
-                                            <div>
-                                                <p><strong>Mathematics</strong></p>
-                                                <p><strong>Mathematical Literacy</strong></p>
-                                            </div>
-                                            <div>
-                                                <p><strong>Physical Science</strong></p>
-                                                <p><strong>Life Science</strong></p>
-                                                <p><strong>Agriculture</strong></p>
-                                            </div>
-                                            <div>
-                                                <p><strong>Accounting</strong></p>
-                                                <p><strong>Economics</strong></p>
-                                                <p><strong>Business Studies</strong></p>
-                                            </div>
-                                            <div>
-                                                <p><strong>English</strong></p>
-                                                <p><strong>Tourism</strong></p>
-                                                <p><strong>Geography</strong></p>
-                                                <p><strong>History</strong></p>
-                                            </div>
-                                        </td>
-                                        <td> </td>
-                                    </tr>
-                                </tbody>
-                            </table>
-                            <div>
-                                <p>Subjects are offered on demand by the enrolment in each  particular year. </p>
-                            </div>
+                            <p>Subjects are offered on demand by the enrolment in each  particular year. </p>
                         </div>
-                        <br>
                     </div>
-                    <!-- /.widget-item -->
+                    <br>
                 </div>
-                <div class="col-md-6">
-                    <!-- first column -->
-                    <div class="widget-item">
-                        <h3 class="widget-title">Assement criateria</h3>
-                        <div class="sample-thumb"></div>
-                        <p><!-- /.sample-thumb -->Exemption Matric Centre conducts regular assessments for learners in a   form of home works, assignments, tests and examinations.Exemption    Matric Centre continuously records learners&rsquo; performance and   improvement,  assessing them on areas needing attention with regards to   subject and language  comprehension. The centre then  identifies   high-risk subjects in terms of pass rate and recommends possible    interventions for vulnerable learners. </p>
-                        <p>&nbsp;</p>
-                        <p>
-                            <span class="sample-thumb"><img src="~/imgRepo/exemption-matric-centre-logo.jpg" alt="company" title="company"></span><br>
-                        </p>
-                    </div>
-                    <!-- /.widget-item -->
-                </div><!-- /.col-md-4 --><!-- /.col-md-4 --><!-- /.col-md-4 -->
+                <!-- /.widget-item -->
+            </div>
+            <div class="col-md-6">
+                <!-- first column -->
+                <div class="widget-item">
+                    <h3 class="widget-title">Assement criateria</h3>
+                    <div class="sample-thumb"></div>
+                    <p><!-- /.sample-thumb -->Exemption Matric Centre conducts regular assessments for learners in a   form of home works, assignments, tests and examinations.Exemption    Matric Centre continuously records learners&rsquo; performance and   improvement,  assessing them on areas needing attention with regards to   subject and language  comprehension. The centre then  identifies   high-risk subjects in terms of pass rate and recommends possible    interventions for vulnerable learners. </p>
+                    <p>&nbsp;</p>
+                    <p>
+                        <span class="sample-thumb"><img src="~/imgRepo/exemption-matric-centre-logo.jpg" alt="company" title="company"></span><br>
+                    </p>
+                </div>
+                <!-- /.widget-item -->
+            </div><!-- /.col-md-4 --><!-- /.col-md-4 --><!-- /.col-md-4 -->
 
 
 
-            </div> <!-- /.row second -->
+        </div> <!-- /.row second -->
 
-        </div> <!-- /.container -->
-    </div>
+    </div> <!-- /.container -->
+</div>
     </body>
 
-     <!-- /.middle-content -->
-    <!-- /.partner-list -->
-    <!-- /.site-footer -->
+<!-- /.middle-content -->
+<!-- /.partner-list -->
+<!-- /.site-footer -->
