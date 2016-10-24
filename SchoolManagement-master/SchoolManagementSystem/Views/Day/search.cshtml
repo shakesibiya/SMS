@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "search";
+}
+
+<h2>search</h2>
+<br />
+<br />
+@using (Html.BeginForm("search", "Day", FormMethod.Post))
+{
+    @Html.AntiForgeryToken()
+    <table>
+        <tr>
+            <td><br /></td>
+            <td></td>
+        </tr>
+        <tr>
+            <td><input type="text" name="compus"></td>
+            <td><button type="submit" class="btn btn-primary" >Search </button> </td>
+        </tr>
+        <tr>
+            <td></td>
+            <td></td>
+        </tr>
+    </table>
+}
+

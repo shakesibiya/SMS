@@ -171,6 +171,8 @@
     <Compile Include="Controllers\AppointmentController.cs" />
     <Compile Include="Controllers\AvatarController.cs" />
     <Compile Include="Controllers\BookingController.cs" />
+    <Compile Include="Controllers\CompusController.cs" />
+    <Compile Include="Controllers\DayController.cs" />
     <Compile Include="Controllers\DeregisterController.cs" />
     <Compile Include="Controllers\DirectorController.cs" />
     <Compile Include="Controllers\EventController.cs" />
@@ -183,11 +185,14 @@
     <Compile Include="Controllers\PayrollController.cs" />
     <Compile Include="Controllers\PostPicturesController.cs" />
     <Compile Include="Controllers\QuizController.cs" />
+    <Compile Include="Controllers\roomController.cs" />
     <Compile Include="Controllers\SecretaryController.cs" />
     <Compile Include="Controllers\SmsController.cs" />
     <Compile Include="Controllers\StatesController.cs" />
     <Compile Include="Controllers\StudentController.cs" />
+    <Compile Include="Controllers\subjectController.cs" />
     <Compile Include="Controllers\TeacherController.cs" />
+    <Compile Include="Controllers\timetableController.cs" />
     <Compile Include="Controllers\VotingsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -898,6 +903,33 @@
     <Content Include="Views\Quiz\Details.cshtml" />
     <Content Include="Views\Quiz\Index.cshtml" />
     <Content Include="Views\Quiz\Results.cshtml" />
+    <Content Include="Views\Compus\Create.cshtml" />
+    <Content Include="Views\Compus\Delete.cshtml" />
+    <Content Include="Views\Compus\Details.cshtml" />
+    <Content Include="Views\Compus\Edit.cshtml" />
+    <Content Include="Views\Compus\Index.cshtml" />
+    <Content Include="Views\Day\Create.cshtml" />
+    <Content Include="Views\Day\Delete.cshtml" />
+    <Content Include="Views\Day\Details.cshtml" />
+    <Content Include="Views\Day\Edit.cshtml" />
+    <Content Include="Views\Day\Index.cshtml" />
+    <Content Include="Views\Day\recod.cshtml" />
+    <Content Include="Views\Day\search.cshtml" />
+    <Content Include="Views\Room\Create.cshtml" />
+    <Content Include="Views\Room\Delete.cshtml" />
+    <Content Include="Views\Room\Details.cshtml" />
+    <Content Include="Views\Room\Edit.cshtml" />
+    <Content Include="Views\Room\Index.cshtml" />
+    <Content Include="Views\Subject\Create.cshtml" />
+    <Content Include="Views\Subject\Delete.cshtml" />
+    <Content Include="Views\Subject\Details.cshtml" />
+    <Content Include="Views\Subject\Edit.cshtml" />
+    <Content Include="Views\Subject\Index.cshtml" />
+    <Content Include="Views\timetable\Create.cshtml" />
+    <Content Include="Views\timetable\Delete.cshtml" />
+    <Content Include="Views\timetable\Details.cshtml" />
+    <Content Include="Views\timetable\Edit.cshtml" />
+    <Content Include="Views\timetable\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

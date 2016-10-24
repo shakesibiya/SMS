@@ -1,0 +1,57 @@
+﻿@model IEnumerable<SchoolManagementSystem.Domain.Entities.Day>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Copmus.compusnam)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rooms.roomname)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Subject.subjects)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.days)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.time)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Copmus.compusnam)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rooms.roomname)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Subject.subjects)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.days)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.time)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.day_id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.day_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.day_id })
+        </td>
+    </tr>
+}
+
+</table>
